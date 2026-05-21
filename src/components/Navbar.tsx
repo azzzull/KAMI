@@ -39,11 +39,11 @@ export function Navbar() {
                         : { y: 0, backgroundColor: "rgba(255,255,255,0)" }
                 }
                 transition={{ duration: 0.35, ease }}
-                className={`fixed inset-x-0 top-0 z-50 border-b border-transparent px-4 py-3 sm:px-6 lg:px-8 ${
+                className={`fixed inset-x-0 top-0 z-50 border-b border-transparent px-5 py-3 sm:px-6 lg:px-8 ${
                     scrolled ? "backdrop-blur-lg" : ""
                 }`}
             >
-                <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-3 transition-all duration-300 sm:px-6 lg:px-8">
+                <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full px-5 py-3 transition-all duration-300 sm:px-6 lg:px-8">
                     <Link to="/" className="group flex items-center gap-3">
                         <img
                             src={logo}
@@ -103,7 +103,7 @@ export function Navbar() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.28, ease }}
-                        className="fixed inset-0 z-40 bg-slate-950/[0.92] px-4 pb-8 pt-24 backdrop-blur-xl md:hidden"
+                        className="fixed inset-0 z-40 bg-slate-950/[0.92] px-6 pb-8 pt-24 backdrop-blur-xl md:hidden"
                     >
                         <motion.div
                             initial={{ y: 10, opacity: 0 }}

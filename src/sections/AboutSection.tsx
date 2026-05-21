@@ -11,7 +11,7 @@ export function AboutSection() {
         >
             <div className="absolute left-[-7rem] top-16 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(236,25,139,0.12),transparent_72%)] blur-3xl" />
             <div className="absolute right-[-6rem] bottom-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(30,63,174,0.1),transparent_72%)] blur-3xl" />
-            <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
                 <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
                     <div className="space-y-6">
                         <p className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500 shadow-soft">

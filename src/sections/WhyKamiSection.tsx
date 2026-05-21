@@ -9,7 +9,7 @@ export function WhyKamiSection() {
       className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#fdf2f8_35%,#eef4ff_100%)] py-14 sm:py-16 lg:py-20"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(236,25,139,0.12),transparent_30%),radial-gradient(circle_at_82%_8%,rgba(30,63,174,0.10),transparent_28%)]" />
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
         <SectionHeading
           eyebrow="Why KAMI"
           title="Three reasons clients trust KAMI with important events."

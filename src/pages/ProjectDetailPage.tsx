@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, Clock3, Play, Star } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { projectShowcase } from '../data/site';
 import { MediaThumbnail } from '../components/MediaThumbnail';
@@ -12,14 +12,14 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
-  const project = useMemo(() => projectShowcase.find((item) => item.slug === slug) ?? projectShowcase[0], [slug]);
+  const project = projectShowcase.find((item) => item.slug === slug) ?? projectShowcase[0];
   const [lightbox, setLightbox] = useState<string | null>(null);
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
     <>
       <section className="relative overflow-hidden bg-white pb-12 pt-28 sm:pb-16 sm:pt-32">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
             <aside className="lg:sticky lg:top-24 lg:h-fit">
               <div className="rounded-[36px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#f8fafc)] p-6 shadow-soft">
@@ -98,10 +98,10 @@ export default function ProjectDetailPage() {
           <section className="mt-10">
             <SectionHeading
               eyebrow="Event Gallery"
-              title="A masonry layout with lightbox preview."
+              title="A consistent gallery grid with lightbox preview."
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
             />
-            <div className="mt-8 columns-1 gap-4 sm:columns-2 xl:columns-3">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {project.gallery.map((image, index) => (
                 <motion.button
                   key={image.src + index}
@@ -111,9 +111,9 @@ export default function ProjectDetailPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-8% 0px' }}
                   transition={{ duration: 0.45, delay: index * 0.02, ease }}
-                  className="mb-4 w-full overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft"
+                  className="group aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(17,24,39,0.08)]"
                 >
-                  <img src={image.src} alt={image.title} className="h-auto w-full object-cover transition duration-500 hover:scale-[1.02]" loading="lazy" />
+                  <img src={image.src} alt={image.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]" loading="lazy" />
                 </motion.button>
               ))}
             </div>

@@ -13,7 +13,7 @@ const carouselProjects = [...projectShowcase, ...projectShowcase, ...projectShow
 export function PortfolioSection() {
   return (
     <section id="portfolio" className="relative overflow-hidden bg-white py-12 sm:py-14 lg:py-16">
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
         <SectionHeading
           eyebrow="Our Work"
           title="Moments We're Proud Of"

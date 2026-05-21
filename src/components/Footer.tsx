@@ -9,7 +9,7 @@ export function Footer() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(236,25,139,0.18),transparent_28%),radial-gradient(circle_at_top_right,rgba(30,63,174,0.16),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent)]" />
       <div className="noise-overlay opacity-20" />
       <div aria-hidden="true" className="absolute left-0 right-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(236,25,139,0.8),rgba(107,31,175,0.8),rgba(30,63,174,0.8),transparent)] opacity-70" />
-      <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl px-8 py-12 sm:px-10 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
           <div className="space-y-5">
             <Link to="/" className="inline-flex items-center gap-3 no-underline">

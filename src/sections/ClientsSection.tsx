@@ -4,7 +4,7 @@ import { Marquee } from '../components/Marquee';
 export function ClientsSection() {
   return (
     <section className="relative overflow-hidden bg-white py-12 sm:py-14">
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
         <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.34em] text-slate-400">
           Trusted across sectors
         </p>

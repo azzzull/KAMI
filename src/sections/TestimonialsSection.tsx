@@ -6,12 +6,17 @@ import "swiper/css/effect-cards";
 import { testimonials } from "../data/site";
 import { SectionHeading } from "../components/SectionHeading";
 
-const testimonialSlides = [...testimonials, ...testimonials, ...testimonials];
+const testimonialSlides = testimonials.flatMap((testimonial) =>
+    [0, 1, 2].map((duplicate) => ({
+        ...testimonial,
+        slideKey: `${testimonial.name}-${testimonial.company}-${duplicate}`,
+    })),
+);
 
 export function TestimonialsSection() {
     return (
         <section className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff,#f8fafc)] pb-14 pt-14 sm:pb-16 sm:pt-20 lg:pb-20 lg:pt-14">
-            <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
                 <SectionHeading
                     eyebrow="Testimonials"
                     title="The kind of partner clients describe as calm, clear, and dependable."
@@ -43,12 +48,12 @@ export function TestimonialsSection() {
                             perSlideOffset: 9,
                             perSlideRotate: 1,
                         }}
-                        className="testimonial-swiper mx-auto max-w-3xl !overflow-visible"
+                        className="testimonial-swiper mx-auto max-w-[19.75rem] !overflow-visible sm:max-w-xl md:max-w-2xl lg:max-w-3xl"
                     >
-                        {testimonialSlides.map((testimonial, index) => (
-                            <SwiperSlide key={`${testimonial.name}-${index}`}>
-                                <div className="relative mx-auto max-w-2xl py-5">
-                                    <div className="pointer-events-none absolute inset-0 translate-y-4 rounded-[32px] bg-[linear-gradient(135deg,rgba(236,25,139,0.10),rgba(107,31,175,0.08),rgba(30,63,174,0.08))] blur-2xl" />
+                        {testimonialSlides.map((testimonial) => (
+                            <SwiperSlide key={testimonial.slideKey}>
+                                <div className="relative mx-auto py-6">
+                                    <div className="pointer-events-none absolute inset-x-8 bottom-5 top-10 rounded-[34px] bg-[linear-gradient(135deg,rgba(236,25,139,0.06),rgba(107,31,175,0.05),rgba(30,63,174,0.05))] blur-2xl" />
                                     <motion.article
                                         initial={{ opacity: 0, y: 8 }}
                                         whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +65,7 @@ export function TestimonialsSection() {
                                             duration: 0.5,
                                             ease: [0.22, 1, 0.36, 1],
                                         }}
-                                        className="relative overflow-hidden rounded-[30px] border border-slate-200 bg-white p-6 shadow-[0_14px_40px_rgba(17,24,39,0.08)] ring-1 ring-black/5 sm:p-8"
+                                        className="relative overflow-hidden rounded-[30px] border border-slate-200/70 bg-white p-5 shadow-[0_18px_45px_rgba(17,24,39,0.055)] ring-1 ring-black/[0.025] sm:p-8"
                                     >
                                         <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_top_right,rgba(236,25,139,0.08),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(30,63,174,0.08),transparent_30%)]" />
                                         <p className="text-lg font-medium leading-8 text-slate-800 sm:text-xl">

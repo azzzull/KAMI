@@ -7,16 +7,16 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export function HeroSection() {
     return (
-        <section className="relative overflow-hidden bg-white pt-28 sm:pt-32 lg:pt-28">
-            <div className="pointer-events-none absolute -left-20 top-20 h-56 w-56 rounded-full bg-[#EC198B]/15 blur-3xl" />
-            <div className="pointer-events-none absolute right-0 top-10 h-64 w-64 rounded-full bg-[#1E3FAE]/10 blur-3xl" />
+        <section className="relative overflow-hidden bg-white pt-24 sm:pt-28 lg:pt-28">
+            <div className="pointer-events-none absolute -left-20 top-20 h-56 w-56 rounded-full bg-white/10 blur-3xl lg:bg-[#EC198B]/15" />
+            <div className="pointer-events-none absolute right-0 top-10 h-64 w-64 rounded-full bg-cyan-300/10 blur-3xl lg:bg-[#1E3FAE]/10" />
 
-            <div className="relative flex min-h-[calc(100vh-7rem)] flex-col lg:min-h-[calc(100vh-7rem)] lg:flex-row">
+            <div className="relative flex min-h-[auto] flex-col overflow-hidden bg-gradient-to-br from-[#EC198B] via-[#6B1FAF] to-[#1E3FAE] pb-2 lg:min-h-[calc(100vh-7rem)] lg:flex-row lg:overflow-visible lg:bg-none lg:pb-0">
                 <motion.div
                     initial={{ opacity: 0, x: -18 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.65, ease }}
-                    className="relative z-20 flex min-h-[34rem] w-full flex-col items-start justify-center overflow-hidden rounded-tr-[96px] bg-gradient-to-br from-[#EC198B] via-[#6B1FAF] to-[#1E3FAE] px-6 py-16 text-white shadow-[0_28px_90px_rgba(107,31,175,0.22)] sm:px-10 sm:py-20 lg:min-h-[calc(100vh-7rem)] lg:w-[58%] lg:rounded-tr-[180px] lg:pl-[max(4rem,calc((100vw-72rem)/2+2rem))] lg:pr-14 lg:py-24 xl:pr-16"
+                    className="relative z-20 order-2 flex w-full flex-col items-start justify-center overflow-hidden px-8 pb-10 pt-6 text-white sm:px-10 sm:pb-14 sm:pt-9 lg:order-1 lg:min-h-[calc(100vh-7rem)] lg:w-[58%] lg:rounded-tr-[180px] lg:bg-gradient-to-br lg:from-[#EC198B] lg:via-[#6B1FAF] lg:to-[#1E3FAE] lg:py-24 lg:pl-[max(4rem,calc((100vw-72rem)/2+2rem))] lg:pr-14 lg:shadow-[0_28px_90px_rgba(107,31,175,0.22)] xl:pr-16"
                 >
                     <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
                     <div className="pointer-events-none absolute right-16 top-14 h-32 w-32 rounded-full border border-white/15" />
@@ -28,27 +28,27 @@ export function HeroSection() {
                         transition={{ duration: 0.55, delay: 0.08, ease }}
                         className="relative max-w-2xl"
                     >
-                        <h1 className="max-w-xl font-display text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
+                        <h1 className="max-w-xl font-display text-[2.55rem] font-black leading-[0.98] tracking-tight text-white sm:text-5xl lg:text-7xl">
                             We Create Moments That Move People
                         </h1>
 
-                        <p className="mt-7 max-w-md text-sm leading-7 text-white/82 sm:text-base sm:leading-8">
+                        <p className="mt-5 max-w-md text-sm leading-7 text-white/82 sm:mt-6 sm:text-base sm:leading-8 lg:mt-7">
                             KAMI Event Management bridges corporate expectations
                             and creative execution with a team that understands
                             quality, budget, and creativity from the inside out.
                         </p>
 
-                        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                        <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
                             <MagneticLink
                                 to="/services"
-                                className="inline-flex h-14 w-full items-center justify-center gap-3 rounded-full bg-white px-6 text-sm font-bold text-slate-950 shadow-[0_18px_50px_rgba(255,255,255,0.20)] transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50 sm:w-48"
+                                className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-full bg-white px-5 text-sm font-bold text-slate-950 shadow-[0_18px_50px_rgba(255,255,255,0.20)] transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50 sm:h-14 sm:w-48 sm:px-6"
                             >
                                 Our Services
                                 <ArrowRight className="h-4 w-4" />
                             </MagneticLink>
                             <a
                                 href="#portfolio"
-                                className="inline-flex h-14 w-full items-center justify-center gap-3 rounded-full border border-white/70 bg-white/10 px-6 text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 sm:w-48"
+                                className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-full border border-white/70 bg-white/10 px-5 text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 sm:h-14 sm:w-48 sm:px-6"
                             >
                                 Watch Showreel
                                 <span className="grid h-8 w-8 place-items-center rounded-full border border-white/70 bg-white/10">
@@ -63,7 +63,7 @@ export function HeroSection() {
                     initial={{ opacity: 0, x: 18 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.65, delay: 0.05, ease }}
-                    className="relative z-10 min-h-[24rem] w-full overflow-hidden rounded-tl-[96px] bg-slate-950 shadow-[0_28px_90px_rgba(17,24,39,0.20)] sm:min-h-[32rem] lg:-ml-[8%] lg:min-h-[calc(100vh-7rem)] lg:w-[50%] lg:rounded-tl-[180px]"
+                    className="relative z-10 order-1 mx-8 mt-5 aspect-[16/9] overflow-hidden rounded-[26px] bg-slate-950 shadow-[0_22px_70px_rgba(17,24,39,0.24)] sm:mx-10 sm:mt-7 lg:order-2 lg:-ml-[8%] lg:mx-0 lg:mt-0 lg:aspect-auto lg:min-h-[calc(100vh-7rem)] lg:w-[50%] lg:rounded-l-none lg:rounded-tl-[180px] lg:shadow-[0_28px_90px_rgba(17,24,39,0.20)]"
                 >
                     <img
                         src={heroImage}

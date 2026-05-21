@@ -30,7 +30,7 @@ const servicePillars = [
 export function ServicesSection() {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f8fafc,white)] py-14 sm:py-16 lg:py-20">
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
         <SectionHeading
           eyebrow="Services"
           title="The service model behind every KAMI event."

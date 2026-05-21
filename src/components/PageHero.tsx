@@ -64,7 +64,7 @@ export function PageHero({ eyebrow, title, description, ctaLabel, ctaHref }: Pro
       <div className="absolute right-[-7rem] top-24 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.16),transparent_70%)] blur-3xl" />
       <div className="absolute left-1/2 top-24 h-px w-[46rem] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent)]" />
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-14 sm:px-6 lg:px-8 lg:pb-16">
+      <div className="relative mx-auto max-w-6xl px-8 pb-14 sm:px-10 lg:px-8 lg:pb-16">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}

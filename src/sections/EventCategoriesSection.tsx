@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Play, Image as ImageIcon } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { categories } from '../data/site';
 import { MediaThumbnail } from '../components/MediaThumbnail';
 import { SectionHeading } from '../components/SectionHeading';
@@ -10,11 +10,11 @@ import { VideoModal } from '../components/VideoModal';
 export function EventCategoriesSection() {
   const [videoTitle, setVideoTitle] = useState<string | null>(null);
   const [previewImage, setPreviewImage] = useState<{ title: string; src: string } | null>(null);
-  const activeVideo = useMemo(() => categories.find((item) => item.videoTitle === videoTitle), [videoTitle]);
+  const activeVideo = categories.find((item) => item.videoTitle === videoTitle);
 
   return (
     <section className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-20">
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
         <SectionHeading
           eyebrow="Event Categories"
           title="Separate premium sections for the major event categories we manage."
@@ -90,7 +90,7 @@ export function EventCategoriesSection() {
                         Gallery preview
                       </div>
                       <div className="grid grid-cols-3 gap-3">
-                        {category.gallery.map((image, galleryIndex) => (
+                        {category.gallery.map((image) => (
                           <button
                             key={image.src}
                             type="button"

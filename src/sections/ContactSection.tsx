@@ -25,7 +25,7 @@ export function ContactSection() {
             className="relative overflow-hidden bg-[linear-gradient(135deg,#111827,#1e3fae,#6b1faf,#ec198b)] py-14 text-white sm:py-16 lg:py-20"
         >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_20%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_20%)]" />
-            <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="relative mx-auto max-w-5xl px-8 sm:px-10 lg:px-8">
                 <SectionHeading
                     eyebrow="Contact"
                     title="Tell us about your next event and we'll shape the experience around it."
