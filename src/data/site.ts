@@ -34,7 +34,6 @@ import corporate4LifeConvention from "../assets/corporateEvent/4life indonesia n
 import corporateBca from "../assets/corporateEvent/bca corporate.jpg";
 import corporateConoco from "../assets/corporateEvent/conoco-phillips.jpg";
 import corporateSynergy from "../assets/corporateEvent/synergy sotheast asia summit.jpg";
-import corporateSynergyVideo from "../assets/corporateEvent/synergy sea summit recap.mp4";
 import corporateUnilever from "../assets/corporateEvent/unilever distributor award night.jpg";
 import exhibitionChevrolet from "../assets/exhibition/Chevrolet booth IIMS.jpg";
 import exhibitionKompas from "../assets/exhibition/Kompas Gramedia Jakarta Fair.jpg";
@@ -312,7 +311,7 @@ export const categories: CategoryItem[] = [
         ],
         videoTitle: "Corporate event production reel",
         videoThumb: corporateSynergy,
-        videoSrc: corporateSynergyVideo,
+        videoSrc: "https://www.youtube.com/embed/0qvXHjLhQWc",
     },
     {
         slug: "brand-event",
@@ -477,7 +476,7 @@ export const projectShowcase: ProjectItem[] = [
         ],
         videoThumb: corporateSynergy,
         videoTitle: "Synergy Southeast Asia Summit recap",
-        videoSrc: corporateSynergyVideo,
+        videoSrc: "https://www.youtube.com/embed/0qvXHjLhQWc",
     },
     {
         slug: "kfc-opening-store-launch",
