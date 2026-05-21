@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+
+# production
+dist/
+
+# misc
+*.log
+*.tsbuildinfo
+
+# local env files
+.env
+.env.*
+
+# vscode
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
