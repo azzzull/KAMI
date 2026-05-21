@@ -4,7 +4,6 @@ import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { projectShowcase } from '../data/site';
 import { MediaThumbnail } from '../components/MediaThumbnail';
-import { PageHero } from '../components/PageHero';
 import { ProjectCard } from '../components/ProjectCard';
 import { SectionHeading } from '../components/SectionHeading';
 import { VideoModal } from '../components/VideoModal';
@@ -19,16 +18,7 @@ export default function ProjectDetailPage() {
 
   return (
     <>
-      <PageHero
-        eyebrow={project.category}
-        title={project.title}
-        description={project.description}
-        ctaLabel="Back to portfolio"
-        ctaHref="/portfolio"
-        image={project.gallery[0]}
-      />
-
-      <section className="relative overflow-hidden bg-white py-12 sm:py-16">
+      <section className="relative overflow-hidden bg-white pb-12 pt-28 sm:pb-16 sm:pt-32">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
             <aside className="lg:sticky lg:top-24 lg:h-fit">
@@ -71,9 +61,9 @@ export default function ProjectDetailPage() {
             <div className="space-y-8">
               <section className="rounded-[36px] border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
                 <SectionHeading
-                  eyebrow="Project Detail"
-                  title="A premium case study with clear structure and controlled motion."
-                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
+                  eyebrow={project.category}
+                  title={project.title}
+                  description={project.description}
                 />
               </section>
 
@@ -102,80 +92,82 @@ export default function ProjectDetailPage() {
                   );
                 })}
               </section>
-
-              <section>
-                <SectionHeading
-                  eyebrow="Event Gallery"
-                  title="A masonry layout with lightbox preview."
-                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
-                />
-                <div className="mt-8 columns-1 gap-4 sm:columns-2 xl:columns-3">
-                  {project.gallery.map((image, index) => (
-                    <motion.button
-                      key={image + index}
-                      type="button"
-                      onClick={() => setLightbox(image)}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: '-8% 0px' }}
-                      transition={{ duration: 0.45, delay: index * 0.02, ease }}
-                      className="mb-4 w-full overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft"
-                    >
-                      <img src={image} alt={`${project.title} gallery ${index + 1}`} className="h-auto w-full object-cover transition duration-500 hover:scale-[1.02]" loading="lazy" />
-                    </motion.button>
-                  ))}
-                </div>
-              </section>
-
-              <section className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-                <div className="rounded-[36px] border border-slate-200 bg-white p-6 shadow-soft">
-                  <SectionHeading eyebrow="Timeline" title="From strategy to live delivery." />
-                  <div className="mt-6 space-y-4">
-                    {project.timeline.map((step, index) => (
-                      <div key={step.label} className="flex gap-4">
-                        <div className="flex flex-col items-center">
-                          <div className="grid h-10 w-10 place-items-center rounded-full bg-[linear-gradient(135deg,#EC198B,#6B1FAF,#1E3FAE)] text-sm font-bold text-white">
-                            {index + 1}
-                          </div>
-                          {index < project.timeline.length - 1 ? <div className="h-full w-px bg-slate-200" /> : null}
-                        </div>
-                        <div className="pb-6">
-                          <h4 className="text-base font-semibold text-slate-950">{step.label}</h4>
-                          <p className="mt-2 text-sm leading-7 text-slate-600">{step.detail}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="rounded-[36px] border border-slate-200 bg-[linear-gradient(135deg,#111827,#1e3fae,#6b1faf,#ec198b)] p-6 text-white shadow-soft">
-                  <SectionHeading
-                    eyebrow="Event Statistics"
-                    title="Relevant numbers at a glance."
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    className="text-white [&_h2]:text-white [&_p]:text-white/75"
-                  />
-                  <div className="mt-8 grid gap-3">
-                    {project.metrics.map((metric) => (
-                      <div key={metric.label} className="rounded-[26px] border border-white/10 bg-white/[0.08] px-4 py-4 text-sm leading-7 text-white/90">
-                        <span className="block text-xs uppercase tracking-[0.24em] text-white/[0.55]">{metric.label}</span>
-                        <span className="mt-1 block text-lg font-semibold">{metric.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-
-              <section>
-                <SectionHeading eyebrow="Related Projects" title="Lorem ipsum dolor sit amet." />
-                <div className="mt-8 grid gap-5 lg:grid-cols-2">
-                  {projectShowcase.filter((item) => item.slug !== project.slug).slice(0, 2).map((item) => (
-                    <ProjectCard key={item.slug} project={item} />
-                  ))}
-                </div>
-              </section>
             </div>
           </div>
+
+          <section className="mt-10">
+            <SectionHeading
+              eyebrow="Event Gallery"
+              title="A masonry layout with lightbox preview."
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
+            />
+            <div className="mt-8 columns-1 gap-4 sm:columns-2 xl:columns-3">
+              {project.gallery.map((image, index) => (
+                <motion.button
+                  key={image.src + index}
+                  type="button"
+                  onClick={() => setLightbox(image.src)}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-8% 0px' }}
+                  transition={{ duration: 0.45, delay: index * 0.02, ease }}
+                  className="mb-4 w-full overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft"
+                >
+                  <img src={image.src} alt={image.title} className="h-auto w-full object-cover transition duration-500 hover:scale-[1.02]" loading="lazy" />
+                </motion.button>
+              ))}
+            </div>
+          </section>
+
+          <section className="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
+            <div className="rounded-[36px] border border-slate-200 bg-white p-6 shadow-soft">
+              <SectionHeading eyebrow="Timeline" title="From strategy to live delivery." />
+              <div className="mt-6 space-y-4">
+                {project.timeline.map((step, index) => (
+                  <div key={step.label} className="flex gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-[linear-gradient(135deg,#EC198B,#6B1FAF,#1E3FAE)] text-sm font-bold text-white">
+                        {index + 1}
+                      </div>
+                      {index < project.timeline.length - 1 ? <div className="h-full w-px bg-slate-200" /> : null}
+                    </div>
+                    <div className="pb-6">
+                      <h4 className="text-base font-semibold text-slate-950">{step.label}</h4>
+                      <p className="mt-2 text-sm leading-7 text-slate-600">{step.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[36px] border border-slate-200 bg-[linear-gradient(135deg,#111827,#1e3fae,#6b1faf,#ec198b)] p-6 text-white shadow-soft">
+              <SectionHeading
+                eyebrow="Event Statistics"
+                title="Relevant numbers at a glance."
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                className="text-white [&>p:first-child]:border-white/25 [&>p:first-child]:bg-white [&>p:first-child]:text-[#6B1FAF] [&_h2]:text-white [&_p]:text-white/75"
+              />
+              <div className="mt-8 grid gap-3">
+                {project.metrics.map((metric) => (
+                  <div key={metric.label} className="rounded-[26px] border border-white/10 bg-white/[0.08] px-4 py-4 text-sm leading-7 text-white/90">
+                    <span className="block text-xs uppercase tracking-[0.24em] text-white/[0.55]">{metric.label}</span>
+                    <span className="mt-1 block text-lg font-semibold">{metric.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-10">
+            <SectionHeading eyebrow="Related Projects" title="More selected KAMI projects." />
+            <div className="mt-8 grid items-stretch gap-5 lg:grid-cols-2">
+              {projectShowcase.filter((item) => item.slug !== project.slug).slice(0, 2).map((item) => (
+                <div key={item.slug} className="h-full">
+                  <ProjectCard project={item} />
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </section>
 

@@ -57,13 +57,18 @@ export type TeamProfile = {
     photo: string;
 };
 
+export type GalleryImage = {
+    src: string;
+    title: string;
+};
+
 export type CategoryItem = {
     slug: string;
     title: string;
     description: string;
     examples: string[];
     image: string;
-    gallery: string[];
+    gallery: GalleryImage[];
     videoTitle: string;
     videoThumb: string;
     videoSrc?: string;
@@ -80,7 +85,7 @@ export type ProjectItem = {
     metrics: { label: string; value: string }[];
     timeline: { label: string; detail: string }[];
     image: string;
-    gallery: string[];
+    gallery: GalleryImage[];
     videoThumb: string;
     videoTitle: string;
     videoSrc?: string;
@@ -276,13 +281,34 @@ export const categories: CategoryItem[] = [
         ],
         image: corporateSynergy,
         gallery: [
-            synergyseasummit,
-            synergyseasummit2,
-            corporateSynergy,
-            corporateBca,
-            corporateUnilever,
-            corporateConoco,
-            corporate4LifeConvention,
+            {
+                src: synergyseasummit,
+                title: "Synergy SEA Summit opening stage",
+            },
+            {
+                src: synergyseasummit2,
+                title: "Synergy SEA Summit audience moment",
+            },
+            {
+                src: corporateSynergy,
+                title: "Synergy Southeast Asia Summit main hall",
+            },
+            {
+                src: corporateBca,
+                title: "BCA Corporate and Distributor Gathering",
+            },
+            {
+                src: corporateUnilever,
+                title: "Unilever Distributor Award Night",
+            },
+            {
+                src: corporateConoco,
+                title: "Conoco-Phillips Employee Gathering",
+            },
+            {
+                src: corporate4LifeConvention,
+                title: "4Life Indonesia National Convention",
+            },
         ],
         videoTitle: "Corporate event production reel",
         videoThumb: corporateSynergy,
@@ -302,13 +328,16 @@ export const categories: CategoryItem[] = [
         ],
         image: kfcopening2,
         gallery: [
-            kfcopening,
-            kfcopening2,
-            brand4LifeSkincare,
-            brandGoodDoctor,
-            brand4LifeSea,
-            brandDatsunFactory,
-            brandLgMobile,
+            { src: kfcopening, title: "KFC Opening Store launch detail" },
+            { src: kfcopening2, title: "KFC Opening Store guest experience" },
+            { src: brand4LifeSkincare, title: "4Life Skincare Launching" },
+            { src: brandGoodDoctor, title: "Good Doctor Activation Roadshows" },
+            {
+                src: brand4LifeSea,
+                title: "4Life Southeast Asia Launching Event",
+            },
+            { src: brandDatsunFactory, title: "Datsun Factory Launching" },
+            { src: brandLgMobile, title: "LG Mobile Launching" },
         ],
         videoTitle: "Brand launch video highlight",
         videoThumb: brand4LifeSkincare,
@@ -325,7 +354,14 @@ export const categories: CategoryItem[] = [
             "Health Tech Summit",
         ],
         image: exhibitionChevrolet,
-        gallery: [exhibitionChevrolet, exhibitionKompas, exhibitionMandiri],
+        gallery: [
+            { src: exhibitionChevrolet, title: "Chevrolet Booth at IIMS" },
+            {
+                src: exhibitionKompas,
+                title: "Kompas Gramedia Jakarta Fair booth",
+            },
+            { src: exhibitionMandiri, title: "Mandiri Marathon Fair booth" },
+        ],
         videoTitle: "Health Tech Summit",
         videoThumb: healthtechsummitvideo,
         videoSrc: healthtechsummitvideo,
@@ -343,10 +379,13 @@ export const categories: CategoryItem[] = [
         ],
         image: concertMetallica,
         gallery: [
-            concertBigbang,
-            concertMetallica,
-            concertTriKarnival,
-            concertHutSlank,
+            { src: concertBigbang, title: "Bigbang Concert" },
+            {
+                src: concertMetallica,
+                title: "Metallica Concert stage production",
+            },
+            { src: concertTriKarnival, title: "Tri Karnival live audience" },
+            { src: concertHutSlank, title: "HUT Slank concert moment" },
         ],
         videoTitle: "Concert production spotlight",
         videoThumb: concertBigbang,
@@ -379,8 +418,7 @@ export const projectShowcase: ProjectItem[] = [
         slug: "synergy-sea-summit",
         category: "Corporate Event",
         title: "Synergy SEA Summit 2025",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         overview:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero.",
         challenge:
@@ -408,13 +446,34 @@ export const projectShowcase: ProjectItem[] = [
         ],
         image: synergyseasummit2,
         gallery: [
-            synergyseasummit2,
-            corporateSynergy,
-            synergyseasummit,
-            corporateBca,
-            corporateUnilever,
-            corporateConoco,
-            corporate4LifeConvention,
+            {
+                src: synergyseasummit2,
+                title: "Synergy SEA Summit audience moment",
+            },
+            {
+                src: corporateSynergy,
+                title: "Synergy Southeast Asia Summit main hall",
+            },
+            {
+                src: synergyseasummit,
+                title: "Synergy SEA Summit opening stage",
+            },
+            {
+                src: corporateBca,
+                title: "BCA Corporate and Distributor Gathering",
+            },
+            {
+                src: corporateUnilever,
+                title: "Unilever Distributor Award Night",
+            },
+            {
+                src: corporateConoco,
+                title: "Conoco-Phillips Employee Gathering",
+            },
+            {
+                src: corporate4LifeConvention,
+                title: "4Life Indonesia National Convention",
+            },
         ],
         videoThumb: corporateSynergy,
         videoTitle: "Synergy Southeast Asia Summit recap",
@@ -424,8 +483,7 @@ export const projectShowcase: ProjectItem[] = [
         slug: "kfc-opening-store-launch",
         category: "Brand Event",
         title: "KFC Opening Store Launch",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         overview:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero.",
         challenge:
@@ -453,13 +511,16 @@ export const projectShowcase: ProjectItem[] = [
         ],
         image: kfcopening2,
         gallery: [
-            kfcopening,
-            kfcopening2,
-            brand4LifeSkincare,
-            brandGoodDoctor,
-            brand4LifeSea,
-            brandDatsunFactory,
-            brandLgMobile,
+            { src: kfcopening, title: "KFC Opening Store launch detail" },
+            { src: kfcopening2, title: "KFC Opening Store guest experience" },
+            { src: brand4LifeSkincare, title: "4Life Skincare Launching" },
+            { src: brandGoodDoctor, title: "Good Doctor Activation Roadshows" },
+            {
+                src: brand4LifeSea,
+                title: "4Life Southeast Asia Launching Event",
+            },
+            { src: brandDatsunFactory, title: "Datsun Factory Launching" },
+            { src: brandLgMobile, title: "LG Mobile Launching" },
         ],
         videoThumb: brand4LifeSkincare,
         videoTitle: "Launch event reel",
@@ -468,8 +529,7 @@ export const projectShowcase: ProjectItem[] = [
         slug: "chevrolet-booth-iims",
         category: "Exhibition",
         title: "Chevrolet Booth : IIMS",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         overview:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero.",
         challenge:
@@ -496,7 +556,14 @@ export const projectShowcase: ProjectItem[] = [
             },
         ],
         image: exhibitionChevrolet,
-        gallery: [exhibitionChevrolet, exhibitionKompas, exhibitionMandiri],
+        gallery: [
+            { src: exhibitionChevrolet, title: "Chevrolet Booth at IIMS" },
+            {
+                src: exhibitionKompas,
+                title: "Kompas Gramedia Jakarta Fair booth",
+            },
+            { src: exhibitionMandiri, title: "Mandiri Marathon Fair booth" },
+        ],
         videoThumb: healthtechsummitvideo,
         videoTitle: "Health Tech Summit",
         videoSrc: healthtechsummitvideo,
@@ -534,10 +601,13 @@ export const projectShowcase: ProjectItem[] = [
         ],
         image: concertMetallica,
         gallery: [
-            concertMetallica,
-            concertBigbang,
-            concertTriKarnival,
-            concertHutSlank,
+            {
+                src: concertMetallica,
+                title: "Metallica Concert stage production",
+            },
+            { src: concertBigbang, title: "Bigbang Concert crowd energy" },
+            { src: concertTriKarnival, title: "Tri Karnival live audience" },
+            { src: concertHutSlank, title: "HUT Slank concert moment" },
         ],
         videoThumb: concertBigbang,
         videoTitle: "Concert production spotlight",

@@ -36,7 +36,7 @@ export function ProjectCard({ project, featured = false, compact = false }: Prop
     <GlassCard className="h-full">
       <Link
         to={`/portfolio/${project.slug}`}
-        className={`group block overflow-hidden rounded-[32px] border border-slate-200 bg-white no-underline shadow-soft transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_24px_60px_rgba(17,24,39,0.12)] ${featured ? 'min-h-[28rem]' : 'min-h-[22rem]'}`}
+        className={`group block h-full overflow-hidden rounded-[32px] border border-slate-200 bg-white no-underline shadow-soft transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_24px_60px_rgba(17,24,39,0.12)] ${featured ? 'min-h-[28rem]' : 'min-h-[22rem]'}`}
       >
         <div className="relative h-72 overflow-hidden sm:h-[22rem]">
           <img

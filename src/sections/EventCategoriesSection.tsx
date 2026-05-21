@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Play, ArrowRight, Image as ImageIcon } from 'lucide-react';
+import { Play, Image as ImageIcon } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { categories } from '../data/site';
 import { MediaThumbnail } from '../components/MediaThumbnail';
@@ -33,42 +33,48 @@ export function EventCategoriesSection() {
               transition={{ duration: 0.55, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
               className="overflow-hidden rounded-[36px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#f8fafc)] shadow-soft"
             >
-              <div className="grid lg:grid-cols-[1fr_1.05fr]">
-                <div className="relative h-72 overflow-hidden sm:h-80 lg:h-[30rem]">
+              <div>
+                <div className="relative h-64 overflow-hidden sm:h-72 lg:h-80">
                   <img src={category.image} alt={category.title} className="h-full w-full object-cover object-center transition duration-500 hover:scale-[1.02]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent opacity-70" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent opacity-75" />
                   <div className="absolute left-6 top-6 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white backdrop-blur-md">
                     {category.title}
                   </div>
+                  <div className="absolute bottom-6 left-6 right-6 max-w-2xl text-white">
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200">Event category</p>
+                    <h3 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{category.title}</h3>
+                  </div>
                 </div>
 
-                <div className="p-6 sm:p-8">
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-fuchsia-600">{category.title}</p>
-                  <p className="mt-4 text-sm leading-8 text-slate-600">{category.description}</p>
+                <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[0.92fr_1.08fr]">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-fuchsia-600">{category.title}</p>
+                    <p className="mt-4 text-sm leading-8 text-slate-600">{category.description}</p>
 
-                  <div className="mt-8">
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">Event examples</p>
-                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                      {category.examples.map((example) => (
-                        <div key={example} className="rounded-[22px] border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-700">
-                          {example}
-                        </div>
-                      ))}
+                    <div className="mt-7">
+                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">Event examples</p>
+                      <div className="mt-4 grid gap-3">
+                        {category.examples.map((example) => (
+                          <div key={example} className="rounded-[22px] border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-700">
+                            {example}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  <div className={`mt-8 grid gap-5 ${category.videoSrc ? 'xl:grid-cols-[0.9fr_1.1fr]' : ''}`}>
+                  <div className={`grid content-start gap-5 ${category.videoSrc ? 'sm:grid-cols-[0.92fr_1.08fr]' : ''}`}>
                     {category.videoSrc ? (
                       <button
                         type="button"
                         onClick={() => setVideoTitle(category.videoTitle)}
                         className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-950 text-left text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5"
                       >
-                        <MediaThumbnail src={category.videoThumb} alt={`${category.title} video`} className="h-44 w-full object-cover opacity-85 transition duration-500 group-hover:scale-[1.02] sm:h-48" />
+                        <MediaThumbnail src={category.videoThumb} alt={`${category.title} video`} className="h-52 w-full object-cover opacity-85 transition duration-500 group-hover:scale-[1.02] sm:h-full sm:min-h-[13rem]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="grid h-16 w-16 place-items-center rounded-full border border-white/20 bg-white/[0.15] backdrop-blur-md">
-                            <Play className="h-6 w-6 fill-white text-white" />
+                          <span className="grid h-14 w-14 place-items-center rounded-full border border-white/20 bg-white/[0.15] backdrop-blur-md">
+                            <Play className="h-5 w-5 fill-white text-white" />
                           </span>
                         </div>
                         <div className="absolute bottom-4 left-4 right-4">
@@ -86,15 +92,15 @@ export function EventCategoriesSection() {
                       <div className="grid grid-cols-3 gap-3">
                         {category.gallery.map((image, galleryIndex) => (
                           <button
-                            key={image}
+                            key={image.src}
                             type="button"
-                            onClick={() => setPreviewImage({ title: `${category.title} gallery ${galleryIndex + 1}`, src: image })}
+                            onClick={() => setPreviewImage({ title: image.title, src: image.src })}
                             className="group overflow-hidden rounded-[18px] bg-slate-100 text-left transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(17,24,39,0.12)]"
-                            aria-label={`Preview ${category.title} image ${galleryIndex + 1}`}
+                            aria-label={`Preview ${image.title}`}
                           >
                             <img
-                              src={image}
-                              alt={`${category.title} gallery preview ${galleryIndex + 1}`}
+                              src={image.src}
+                              alt={image.title}
                               loading="lazy"
                               className="h-24 w-full object-cover transition duration-300 group-hover:scale-[1.04] sm:h-28"
                             />
@@ -104,12 +110,6 @@ export function EventCategoriesSection() {
                     </div>
                   </div>
 
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <a href={`#${category.slug}`} className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-800">
-                      Explore section
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
-                  </div>
                 </div>
               </div>
             </motion.section>
