@@ -13,7 +13,7 @@ export function PortfolioSection() {
         <SectionHeading
           eyebrow="Portfolio"
           title="A selection of work shown in a calm, cinematic format."
-          description="These project cards give a fast overview of the kind of enterprise and brand work KAMI has delivered."
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
           align="center"
         />
 

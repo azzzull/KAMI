@@ -10,7 +10,7 @@ export default function PortfolioPage() {
       <PageHero
         eyebrow="Portfolio"
         title="Portfolio timeline and selected projects"
-        description="A reference view of the kinds of work KAMI has delivered across the years, plus a curated showcase of project detail."
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
         ctaLabel="See why KAMI"
         ctaHref="/why-kami"
         image={categories[2].image}

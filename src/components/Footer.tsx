@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/visuals/logo.png';
 
 export function Footer() {
   return (
@@ -12,8 +13,8 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
           <div className="space-y-5">
             <Link to="/" className="inline-flex items-center gap-3 no-underline">
-              <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-slate-950">
-                <span className="font-extrabold">K</span>
+              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white p-2 shadow-[0_18px_45px_rgba(236,25,139,0.18)]">
+                <img src={logo} alt="KAMI Event Management" className="h-full w-full object-contain" />
               </div>
               <div>
                 <div className="font-display text-sm font-extrabold tracking-[0.24em]">KAMI</div>

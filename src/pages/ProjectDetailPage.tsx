@@ -3,6 +3,7 @@ import { ArrowLeft, CheckCircle2, Clock3, Play, Star } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { projectShowcase } from '../data/site';
+import { MediaThumbnail } from '../components/MediaThumbnail';
 import { PageHero } from '../components/PageHero';
 import { ProjectCard } from '../components/ProjectCard';
 import { SectionHeading } from '../components/SectionHeading';
@@ -52,7 +53,7 @@ export default function ProjectDetailPage() {
                   onClick={() => setVideoOpen(true)}
                   className="mt-6 group relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-950 text-left text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5"
                 >
-                  <img src={project.videoThumb} alt={project.videoTitle} className="h-48 w-full object-cover opacity-85 transition duration-500 group-hover:scale-[1.02]" />
+                  <MediaThumbnail src={project.videoThumb} alt={project.videoTitle} className="h-48 w-full object-cover opacity-85 transition duration-500 group-hover:scale-[1.02]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="grid h-16 w-16 place-items-center rounded-full border border-white/20 bg-white/[0.15] backdrop-blur-md">
@@ -72,7 +73,7 @@ export default function ProjectDetailPage() {
                 <SectionHeading
                   eyebrow="Project Detail"
                   title="A premium case study with clear structure and controlled motion."
-                  description="The page is designed to feel visual, scan-friendly, and polished without becoming overdesigned."
+                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
                 />
               </section>
 
@@ -80,7 +81,7 @@ export default function ProjectDetailPage() {
                 {[
                   { icon: Clock3, title: 'Challenge', text: project.challenge },
                   { icon: CheckCircle2, title: 'Solution', text: project.solution },
-                  { icon: Star, title: 'Outcome', text: 'Selected project metrics and creative output are shown throughout the page.' }
+                  { icon: Star, title: 'Outcome', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }
                 ].map((item, index) => {
                   const Icon = item.icon;
                   return (
@@ -106,7 +107,7 @@ export default function ProjectDetailPage() {
                 <SectionHeading
                   eyebrow="Event Gallery"
                   title="A masonry layout with lightbox preview."
-                  description="Each image opens into a cleaner preview so the page remains lightweight and easy to scan."
+                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
                 />
                 <div className="mt-8 columns-1 gap-4 sm:columns-2 xl:columns-3">
                   {project.gallery.map((image, index) => (
@@ -151,7 +152,7 @@ export default function ProjectDetailPage() {
                   <SectionHeading
                     eyebrow="Event Statistics"
                     title="Relevant numbers at a glance."
-                    description="Use this space for the scale of the engagement, audience, or result."
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     className="text-white [&_h2]:text-white [&_p]:text-white/75"
                   />
                   <div className="mt-8 grid gap-3">
@@ -166,7 +167,7 @@ export default function ProjectDetailPage() {
               </section>
 
               <section>
-                <SectionHeading eyebrow="Related Projects" title="More experiences with the same premium standard." />
+                <SectionHeading eyebrow="Related Projects" title="Lorem ipsum dolor sit amet." />
                 <div className="mt-8 grid gap-5 lg:grid-cols-2">
                   {projectShowcase.filter((item) => item.slug !== project.slug).slice(0, 2).map((item) => (
                     <ProjectCard key={item.slug} project={item} />
@@ -204,7 +205,7 @@ export default function ProjectDetailPage() {
       <VideoModal
         open={videoOpen}
         title={project.videoTitle}
-        src="https://www.youtube-nocookie.com/embed/ysz5S6PUM-U"
+        src={project.videoSrc ?? 'https://www.youtube-nocookie.com/embed/ysz5S6PUM-U'}
         onClose={() => setVideoOpen(false)}
       />
     </>

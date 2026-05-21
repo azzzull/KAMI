@@ -10,6 +10,8 @@ type Props = {
 };
 
 export function VideoModal({ open, title, src, onClose }: Props) {
+  const isLocalVideo = /\.(mp4|webm|ogg)(\?.*)?$/i.test(src);
+
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => {
@@ -51,13 +53,17 @@ export function VideoModal({ open, title, src, onClose }: Props) {
               </button>
             </div>
             <div className="aspect-video w-full bg-black">
-              <iframe
-                title={title}
-                src={src}
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowFullScreen
-                className="h-full w-full"
-              />
+              {isLocalVideo ? (
+                <video src={src} controls autoPlay className="h-full w-full object-contain" />
+              ) : (
+                <iframe
+                  title={title}
+                  src={src}
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                  className="h-full w-full"
+                />
+              )}
             </div>
           </motion.div>
         </motion.div>

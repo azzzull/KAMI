@@ -2,11 +2,14 @@ import { motion } from 'framer-motion';
 import { Play, ArrowRight, Image as ImageIcon } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { categories } from '../data/site';
+import { MediaThumbnail } from '../components/MediaThumbnail';
 import { SectionHeading } from '../components/SectionHeading';
+import { ImageModal } from '../components/ImageModal';
 import { VideoModal } from '../components/VideoModal';
 
 export function EventCategoriesSection() {
   const [videoTitle, setVideoTitle] = useState<string | null>(null);
+  const [previewImage, setPreviewImage] = useState<{ title: string; src: string } | null>(null);
   const activeVideo = useMemo(() => categories.find((item) => item.videoTitle === videoTitle), [videoTitle]);
 
   return (
@@ -15,7 +18,7 @@ export function EventCategoriesSection() {
         <SectionHeading
           eyebrow="Event Categories"
           title="Separate premium sections for the major event categories we manage."
-          description="Each category is presented with a cinematic banner, supporting examples, a video showcase, and gallery preview."
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
           align="center"
         />
 
@@ -54,24 +57,26 @@ export function EventCategoriesSection() {
                     </div>
                   </div>
 
-                  <div className="mt-8 grid gap-5 xl:grid-cols-[0.9fr_1.1fr]">
-                    <button
-                      type="button"
-                      onClick={() => setVideoTitle(category.videoTitle)}
-                      className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-950 text-left text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5"
-                    >
-                      <img src={category.videoThumb} alt={`${category.title} video`} className="h-56 w-full object-cover opacity-85 transition duration-500 group-hover:scale-[1.02]" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="grid h-16 w-16 place-items-center rounded-full border border-white/20 bg-white/[0.15] backdrop-blur-md">
-                          <Play className="h-6 w-6 fill-white text-white" />
-                        </span>
-                      </div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <p className="text-xs uppercase tracking-[0.24em] text-white/[0.60]">Video showcase</p>
-                        <p className="mt-1 text-sm font-semibold">{category.videoTitle}</p>
-                      </div>
-                    </button>
+                  <div className={`mt-8 grid gap-5 ${category.videoSrc ? 'xl:grid-cols-[0.9fr_1.1fr]' : ''}`}>
+                    {category.videoSrc ? (
+                      <button
+                        type="button"
+                        onClick={() => setVideoTitle(category.videoTitle)}
+                        className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-950 text-left text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5"
+                      >
+                        <MediaThumbnail src={category.videoThumb} alt={`${category.title} video`} className="h-56 w-full object-cover opacity-85 transition duration-500 group-hover:scale-[1.02]" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="grid h-16 w-16 place-items-center rounded-full border border-white/20 bg-white/[0.15] backdrop-blur-md">
+                            <Play className="h-6 w-6 fill-white text-white" />
+                          </span>
+                        </div>
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <p className="text-xs uppercase tracking-[0.24em] text-white/[0.60]">Video showcase</p>
+                          <p className="mt-1 text-sm font-semibold">{category.videoTitle}</p>
+                        </div>
+                      </button>
+                    ) : null}
 
                     <div className="rounded-[28px] border border-slate-200 bg-white p-4">
                       <div className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
@@ -79,14 +84,21 @@ export function EventCategoriesSection() {
                         Gallery preview
                       </div>
                       <div className="grid grid-cols-3 gap-3">
-                        {category.gallery.map((image) => (
-                          <img
+                        {category.gallery.map((image, galleryIndex) => (
+                          <button
                             key={image}
-                            src={image}
-                            alt={`${category.title} gallery preview`}
-                            loading="lazy"
-                            className="h-28 w-full rounded-[18px] object-cover transition duration-300 hover:scale-[1.02]"
-                          />
+                            type="button"
+                            onClick={() => setPreviewImage({ title: `${category.title} gallery ${galleryIndex + 1}`, src: image })}
+                            className="group overflow-hidden rounded-[18px] bg-slate-100 text-left transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(17,24,39,0.12)]"
+                            aria-label={`Preview ${category.title} image ${galleryIndex + 1}`}
+                          >
+                            <img
+                              src={image}
+                              alt={`${category.title} gallery preview ${galleryIndex + 1}`}
+                              loading="lazy"
+                              className="h-28 w-full object-cover transition duration-300 group-hover:scale-[1.04]"
+                            />
+                          </button>
                         ))}
                       </div>
                     </div>
@@ -108,8 +120,14 @@ export function EventCategoriesSection() {
       <VideoModal
         open={Boolean(activeVideo)}
         title={activeVideo?.videoTitle ?? ''}
-        src="https://www.youtube-nocookie.com/embed/ysz5S6PUM-U"
+        src={activeVideo?.videoSrc ?? 'https://www.youtube-nocookie.com/embed/ysz5S6PUM-U'}
         onClose={() => setVideoTitle(null)}
+      />
+      <ImageModal
+        open={Boolean(previewImage)}
+        title={previewImage?.title ?? ''}
+        src={previewImage?.src ?? ''}
+        onClose={() => setPreviewImage(null)}
       />
     </section>
   );

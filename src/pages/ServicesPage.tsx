@@ -10,7 +10,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Event categories and service formats"
-        description="Corporate Event, Brand Event, Exhibition, and Concert categories each carry their own production rhythm and creative requirements."
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
         ctaLabel="Start a project"
         ctaHref="/contact"
         image={categories[1].image}

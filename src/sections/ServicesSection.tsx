@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Briefcase, Camera, Sparkles, Workflow } from 'lucide-react';
+import { Briefcase, Camera, Sparkles, Workflow } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { categories } from '../data/site';
 import { SectionHeading } from '../components/SectionHeading';
@@ -7,22 +7,22 @@ import { SectionHeading } from '../components/SectionHeading';
 const servicePillars = [
   {
     title: 'Ideation and concept',
-    description: 'Creative direction that stays close to the brand and the objective.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     icon: Sparkles
   },
   {
     title: 'Stage and visuals',
-    description: 'Lighting, stage presence, and visual framing that feel polished without excess.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     icon: Camera
   },
   {
     title: 'Production control',
-    description: 'Planning, scheduling, vendor coordination, and site execution.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     icon: Workflow
   },
   {
     title: 'Corporate readiness',
-    description: 'A process designed for stakeholders, timelines, and enterprise expectations.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     icon: Briefcase
   }
 ];
@@ -34,15 +34,17 @@ export function ServicesSection() {
         <SectionHeading
           eyebrow="Services"
           title="The service model behind every KAMI event."
-          description="We keep the process clear and responsive, then shape the creative layer around the event category and business need."
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
           align="center"
         />
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
-          {categories.slice(0, 3).map((category) => (
-            <div
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {categories.map((category) => (
+            <Link
               key={category.slug}
+              to={`/services#${category.slug}`}
               className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_24px_60px_rgba(17,24,39,0.12)]"
+              aria-label={`Open ${category.title} services`}
             >
               <img
                 src={category.image}
@@ -52,9 +54,9 @@ export function ServicesSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-75" />
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <p className="text-xs uppercase tracking-[0.24em] text-white/60">{category.title}</p>
-                <p className="mt-1 text-sm font-semibold leading-6">Visual cue for service storytelling</p>
+                <p className="mt-1 text-sm font-semibold leading-6">Lorem ipsum dolor sit amet</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -78,19 +80,6 @@ export function ServicesSection() {
               </motion.article>
             );
           })}
-        </div>
-
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          {['Corporate Event', 'Brand Event', 'Exhibition', 'Concert'].map((label) => (
-            <Link
-              key={label}
-              to="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:border-slate-300 hover:bg-slate-50 hover:shadow-[0_18px_40px_rgba(17,24,39,0.08)]"
-            >
-              {label}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          ))}
         </div>
       </div>
     </section>
