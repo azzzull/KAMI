@@ -311,7 +311,8 @@ export const categories: CategoryItem[] = [
         ],
         videoTitle: "Corporate event production reel",
         videoThumb: corporateSynergy,
-        videoSrc: "https://www.youtube.com/embed/0qvXHjLhQWc",
+        videoSrc:
+            "https://www.youtube.com/embed/hnTRcuF5HHI?si=4D_YohfcRSV5bUmU",
     },
     {
         slug: "brand-event",
@@ -476,7 +477,8 @@ export const projectShowcase: ProjectItem[] = [
         ],
         videoThumb: corporateSynergy,
         videoTitle: "Synergy Southeast Asia Summit recap",
-        videoSrc: "https://www.youtube.com/embed/0qvXHjLhQWc",
+        videoSrc:
+            "https://www.youtube.com/embed/hnTRcuF5HHI?si=4D_YohfcRSV5bUmU",
     },
     {
         slug: "kfc-opening-store-launch",
