@@ -13,8 +13,8 @@ export function EventCategoriesSection() {
   const activeVideo = useMemo(() => categories.find((item) => item.videoTitle === videoTitle), [videoTitle]);
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-20">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Event Categories"
           title="Separate premium sections for the major event categories we manage."
@@ -34,8 +34,8 @@ export function EventCategoriesSection() {
               className="overflow-hidden rounded-[36px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#f8fafc)] shadow-soft"
             >
               <div className="grid lg:grid-cols-[1fr_1.05fr]">
-                <div className="relative min-h-[22rem] overflow-hidden">
-                  <img src={category.image} alt={category.title} className="h-full w-full object-cover transition duration-500 hover:scale-[1.02]" />
+                <div className="relative h-72 overflow-hidden sm:h-80 lg:h-[30rem]">
+                  <img src={category.image} alt={category.title} className="h-full w-full object-cover object-center transition duration-500 hover:scale-[1.02]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent opacity-70" />
                   <div className="absolute left-6 top-6 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white backdrop-blur-md">
                     {category.title}
@@ -64,7 +64,7 @@ export function EventCategoriesSection() {
                         onClick={() => setVideoTitle(category.videoTitle)}
                         className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-950 text-left text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5"
                       >
-                        <MediaThumbnail src={category.videoThumb} alt={`${category.title} video`} className="h-56 w-full object-cover opacity-85 transition duration-500 group-hover:scale-[1.02]" />
+                        <MediaThumbnail src={category.videoThumb} alt={`${category.title} video`} className="h-44 w-full object-cover opacity-85 transition duration-500 group-hover:scale-[1.02] sm:h-48" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                         <div className="absolute inset-0 flex items-center justify-center">
                           <span className="grid h-16 w-16 place-items-center rounded-full border border-white/20 bg-white/[0.15] backdrop-blur-md">
@@ -96,7 +96,7 @@ export function EventCategoriesSection() {
                               src={image}
                               alt={`${category.title} gallery preview ${galleryIndex + 1}`}
                               loading="lazy"
-                              className="h-28 w-full object-cover transition duration-300 group-hover:scale-[1.04]"
+                              className="h-24 w-full object-cover transition duration-300 group-hover:scale-[1.04] sm:h-28"
                             />
                           </button>
                         ))}

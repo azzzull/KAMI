@@ -4,9 +4,12 @@ import { SectionHeading } from '../components/SectionHeading';
 
 export function WhyKamiSection() {
   return (
-    <section id="why-kami" className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28">
-      <div className="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(90deg,rgba(236,25,139,0.06),rgba(107,31,175,0.05),rgba(30,63,174,0.06))]" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section
+      id="why-kami"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#fdf2f8_35%,#eef4ff_100%)] py-14 sm:py-16 lg:py-20"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(236,25,139,0.12),transparent_30%),radial-gradient(circle_at_82%_8%,rgba(30,63,174,0.10),transparent_28%)]" />
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Why KAMI"
           title="Three reasons clients trust KAMI with important events."

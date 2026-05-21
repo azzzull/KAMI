@@ -20,18 +20,18 @@ export function ContactSection() {
   });
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-[linear-gradient(135deg,#111827,#1e3fae,#6b1faf,#ec198b)] py-20 text-white sm:py-24 lg:py-28">
+    <section id="contact" className="relative overflow-hidden bg-[linear-gradient(135deg,#111827,#1e3fae,#6b1faf,#ec198b)] py-14 text-white sm:py-16 lg:py-20">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_20%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_20%)]" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Contact"
           title="Tell us about your next event and we'll shape the experience around it."
           description="Share the scope, location, timing, or audience goals. We'll come back with a clear path forward."
           align="center"
-          className="text-white [&_h2]:text-white [&_p]:text-white/75"
+          className="text-white [&>p:first-child]:border-white/25 [&>p:first-child]:bg-white [&>p:first-child]:text-[#6B1FAF] [&_h2]:text-white [&_p]:text-white/75"
         />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="mt-9 grid gap-5 lg:grid-cols-[0.82fr_1.08fr]">
           <div className="space-y-4">
             {contactMethods.map((item) => {
               const Icon = item.icon;
@@ -42,15 +42,15 @@ export function ContactSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-8% 0px' }}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="rounded-[30px] border border-white/10 bg-white/[0.08] p-5 backdrop-blur-sm"
+                  className="rounded-[26px] border border-white/10 bg-white/[0.08] p-4 backdrop-blur-sm"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10">
+                    <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white/10">
                       <Icon className="h-5 w-5 text-cyan-200" />
                     </div>
                     <div>
                       <p className="text-xs uppercase tracking-[0.24em] text-white/60">{item.label}</p>
-                      <p className="mt-2 text-lg font-semibold">{item.value}</p>
+                      <p className="mt-1.5 text-base font-semibold">{item.value}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -63,7 +63,7 @@ export function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-8% 0px' }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-[36px] border border-white/[0.12] bg-white/[0.08] p-6 shadow-soft backdrop-blur-sm sm:p-8"
+            className="rounded-[32px] border border-white/[0.12] bg-white/[0.08] p-5 shadow-soft backdrop-blur-sm sm:p-6"
             onSubmit={(event) => event.preventDefault()}
           >
             <div className="grid gap-4 sm:grid-cols-2">
@@ -100,13 +100,13 @@ export function ContactSection() {
               <textarea
                 value={form.message}
                 onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
-                rows={5}
-                className="w-full rounded-[28px] border border-white/10 bg-white/[0.08] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/40 focus:border-cyan-300/60 focus:bg-white/[0.12]"
+                rows={4}
+                className="w-full rounded-[24px] border border-white/10 bg-white/[0.08] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-white/40 focus:border-cyan-300/60 focus:bg-white/[0.12]"
                 placeholder="Tell us your goals, timeline, or venue details."
               />
             </div>
             <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <MagneticButton type="submit" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-4 text-sm font-semibold text-slate-950 shadow-soft">
+              <MagneticButton type="submit" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-soft">
                 Send Inquiry
               </MagneticButton>
               <p className="text-sm text-white/[0.65]">We usually reply within one business day with a thoughtful next step.</p>
@@ -139,7 +139,7 @@ function Field({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
-        className="w-full rounded-[28px] border border-white/10 bg-white/[0.08] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/40 focus:border-cyan-300/60 focus:bg-white/[0.12]"
+        className="w-full rounded-[24px] border border-white/10 bg-white/[0.08] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-white/40 focus:border-cyan-300/60 focus:bg-white/[0.12]"
       />
     </label>
   );

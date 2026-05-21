@@ -6,9 +6,32 @@ import { GlassCard } from './GlassCard';
 type Props = {
   project: ProjectItem;
   featured?: boolean;
+  compact?: boolean;
 };
 
-export function ProjectCard({ project, featured = false }: Props) {
+export function ProjectCard({ project, featured = false, compact = false }: Props) {
+  if (compact) {
+    return (
+      <Link
+        to={`/portfolio/${project.slug}`}
+        className="group block overflow-hidden rounded-[18px] border border-white/70 bg-slate-950 no-underline shadow-[0_18px_45px_rgba(17,24,39,0.16)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_24px_60px_rgba(17,24,39,0.18)]"
+      >
+        <div className="relative h-[10.5rem] overflow-hidden sm:h-[12rem] lg:h-[13rem]">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="h-full w-full object-cover transition duration-300 ease-[0.22,1,0.36,1] group-hover:scale-[1.04]"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/15 to-transparent transition duration-300 group-hover:from-slate-950/95" />
+          <div className="absolute bottom-4 left-4 right-4">
+            <h3 className="text-base font-bold tracking-tight text-white sm:text-lg">{project.title}</h3>
+          </div>
+        </div>
+      </Link>
+    );
+  }
+
   return (
     <GlassCard className="h-full">
       <Link

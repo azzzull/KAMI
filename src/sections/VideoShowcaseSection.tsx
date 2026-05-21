@@ -8,8 +8,8 @@ export function VideoShowcaseSection() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f8fafc,white)] py-20 sm:py-24">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f8fafc,white)] py-14 sm:py-16">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Video Highlight"
           title="Cinematic video showcase for showreel and case study playback."

@@ -29,7 +29,7 @@ export default function ProjectDetailPage() {
       />
 
       <section className="relative overflow-hidden bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
             <aside className="lg:sticky lg:top-24 lg:h-fit">
               <div className="rounded-[36px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#f8fafc)] p-6 shadow-soft">

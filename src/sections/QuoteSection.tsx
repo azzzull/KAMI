@@ -2,7 +2,7 @@ import { quoteCopy } from '../data/site';
 
 export function QuoteSection() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#111827,#1e3fae,#6b1faf,#ec198b)] py-16 text-white sm:py-20">
+    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#111827,#1e3fae,#6b1faf,#ec198b)] py-12 text-white sm:py-14">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_20%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.08),transparent_22%)]" />
       <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.34em] text-white/[0.55]">Quote</p>

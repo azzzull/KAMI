@@ -101,31 +101,7 @@ a:hover {
 }
 
 .testimonial-swiper {
-  padding-bottom: 3.25rem;
-}
-
-.testimonial-swiper .swiper-pagination {
-  bottom: 0.25rem !important;
-}
-
-.testimonial-swiper .swiper-pagination-bullet {
-  width: 9px;
-  height: 9px;
-  background: rgba(15, 23, 42, 0.18);
-  opacity: 1;
-  transition: transform 0.25s ease, background-color 0.25s ease, width 0.25s ease;
-}
-
-.testimonial-swiper .swiper-pagination-bullet-active {
-  width: 22px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #ec198b, #6b1faf, #1e3fae);
-}
-
-.testimonial-swiper .swiper-pagination {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
+  padding-bottom: 1rem;
 }
 
 .portfolio-swiper {
@@ -154,6 +130,31 @@ a:hover {
   display: flex;
   justify-content: center;
   gap: 8px;
+}
+
+.portfolio-showcase-swiper {
+  padding: 0.75rem 1.5rem 0.75rem;
+}
+
+.portfolio-showcase-swiper .swiper-slide {
+  transform: scale(0.9);
+  opacity: 0.82;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+
+.portfolio-showcase-swiper .swiper-slide-active {
+  position: relative;
+  z-index: 2;
+  transform: scale(1.06);
+  opacity: 1;
+}
+
+@media (max-width: 1023px) {
+  .portfolio-showcase-swiper .swiper-slide,
+  .portfolio-showcase-swiper .swiper-slide-active {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes marquee-scroll {

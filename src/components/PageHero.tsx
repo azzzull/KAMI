@@ -19,7 +19,7 @@ export function PageHero({ eyebrow, title, description, ctaLabel, ctaHref, image
       <div className="absolute -left-20 top-16 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(236,25,139,0.18),transparent_72%)] blur-3xl" />
       <div className="absolute right-[-6rem] top-24 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(30,63,174,0.16),transparent_72%)] blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:pb-20">
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 pb-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
