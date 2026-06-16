@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Images } from "lucide-react";
 import heroImage from "../assets/corporateEvent/synergy sotheast asia summit.jpg";
 import { MagneticLink } from "../components/MagneticButton";
 
@@ -46,15 +46,15 @@ export function HeroSection() {
                                 Our Services
                                 <ArrowRight className="h-4 w-4" />
                             </MagneticLink>
-                            <a
-                                href="#portfolio"
+                            <MagneticLink
+                                to="/portfolio"
                                 className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-full border border-white/70 bg-white/10 px-5 text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 sm:h-14 sm:w-48 sm:px-6"
                             >
-                                Watch Showreel
+                                View Gallery
                                 <span className="grid h-8 w-8 place-items-center rounded-full border border-white/70 bg-white/10">
-                                    <Play className="h-3.5 w-3.5 fill-white text-white" />
+                                    <Images className="h-3.5 w-3.5 text-white" />
                                 </span>
-                            </a>
+                            </MagneticLink>
                         </div>
                     </motion.div>
                 </motion.div>

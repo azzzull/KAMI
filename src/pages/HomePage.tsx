@@ -17,10 +17,10 @@ export default function HomePage() {
       <BehindKamiSection />
       <WhyKamiSection />
       <ServicesSection />
-      <PortfolioSection />
       <StatsSection />
       <ClientsSection />
       <TestimonialsSection />
+      <PortfolioSection />
       <ContactSection />
     </>
   );

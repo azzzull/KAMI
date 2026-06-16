@@ -3,11 +3,12 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { navItems } from "../data/site";
-import { MagneticButton, MagneticLink } from "./MagneticButton";
+import { MagneticButton } from "./MagneticButton";
 import { useScrollState } from "../hooks/useScrollState";
 import logo from "../assets/visuals/logov2.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const whatsappUrl = "https://wa.me/6285694179574";
 
 export function Navbar() {
     const [open, setOpen] = useState(false);
@@ -73,13 +74,15 @@ export function Navbar() {
                     </nav>
 
                     <div className="hidden md:block">
-                        <MagneticLink
-                            to="/contact"
+                        <a
+                            href={whatsappUrl}
+                            target="_blank"
+                            rel="noreferrer"
                             className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white no-underline shadow-soft transition-all duration-300 hover:bg-slate-800"
                         >
                             Let&apos;s Talk
                             <ArrowRight className="h-4 w-4" />
-                        </MagneticLink>
+                        </a>
                     </div>
 
                     <MagneticButton
@@ -137,14 +140,16 @@ export function Navbar() {
                             </div>
 
                             <div className="grid gap-4">
-                                <Link
-                                    to="/contact"
+                                <a
+                                    href={whatsappUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
                                     onClick={() => setOpen(false)}
                                     className="no-underline inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-4 text-sm font-semibold text-slate-950"
                                 >
                                     Let&apos;s Talk
                                     <ArrowRight className="h-4 w-4" />
-                                </Link>
+                                </a>
                                 <p className="text-sm leading-7 text-slate-300">
                                     Premium event strategy, creative direction,
                                     and flawless execution for corporate brands.

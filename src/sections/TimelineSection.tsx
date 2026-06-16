@@ -5,6 +5,10 @@ import { SectionHeading } from '../components/SectionHeading';
 export function TimelineSection() {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f8fafc,white)] py-14 sm:py-16 lg:py-20">
+      <div aria-hidden="true" className="pointer-events-none absolute -left-28 top-8 h-80 w-80 rounded-full border-[4rem] border-white/80" />
+      <div aria-hidden="true" className="pointer-events-none absolute -right-32 top-1/3 h-96 w-96 rounded-full bg-slate-100/80" />
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-36 left-1/2 h-[30rem] w-[30rem] rounded-full border-[5rem] border-slate-100/80" />
+      <div aria-hidden="true" className="pointer-events-none absolute left-[8%] bottom-20 h-28 w-28 rounded-full bg-fuchsia-100/35 blur-2xl" />
       <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
         <SectionHeading
           eyebrow="Portfolio Timeline"

@@ -13,7 +13,7 @@ export function EventCategoriesSection() {
   const activeVideo = categories.find((item) => item.videoTitle === videoTitle);
 
   return (
-    <section className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-20">
+    <section className="relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
       <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
         <SectionHeading
           eyebrow="Event Categories"
@@ -22,7 +22,7 @@ export function EventCategoriesSection() {
           align="center"
         />
 
-        <div className="mt-12 space-y-10">
+        <div className="mt-8 space-y-7">
           {categories.map((category, index) => (
             <motion.section
               key={category.slug}
@@ -31,31 +31,31 @@ export function EventCategoriesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-8% 0px' }}
               transition={{ duration: 0.55, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
-              className="overflow-hidden rounded-[36px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#f8fafc)] shadow-soft"
+              className="overflow-hidden rounded-[24px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#f8fafc)] shadow-soft"
             >
               <div>
-                <div className="relative h-64 overflow-hidden sm:h-72 lg:h-80">
+                <div className="relative h-48 overflow-hidden sm:h-56 lg:h-64">
                   <img src={category.image} alt={category.title} className="h-full w-full object-cover object-center transition duration-500 hover:scale-[1.02]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent opacity-75" />
-                  <div className="absolute left-6 top-6 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white backdrop-blur-md">
+                  <div className="absolute left-5 top-5 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-md">
                     {category.title}
                   </div>
-                  <div className="absolute bottom-6 left-6 right-6 max-w-2xl text-white">
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200">Event category</p>
-                    <h3 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{category.title}</h3>
+                  <div className="absolute bottom-5 left-5 right-5 max-w-2xl text-white">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-200">Event category</p>
+                    <h3 className="mt-1 text-2xl font-bold tracking-tight sm:text-3xl">{category.title}</h3>
                   </div>
                 </div>
 
-                <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[0.92fr_1.08fr]">
+                <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-[0.92fr_1.08fr]">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.24em] text-fuchsia-600">{category.title}</p>
-                    <p className="mt-4 text-sm leading-8 text-slate-600">{category.description}</p>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">{category.description}</p>
 
-                    <div className="mt-7">
+                    <div className="mt-5">
                       <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">Event examples</p>
-                      <div className="mt-4 grid gap-3">
+                      <div className="mt-3 grid gap-2.5">
                         {category.examples.map((example) => (
-                          <div key={example} className="rounded-[22px] border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-700">
+                          <div key={example} className="rounded-[16px] border border-slate-200 bg-white px-3.5 py-2.5 text-sm leading-6 text-slate-700">
                             {example}
                           </div>
                         ))}
@@ -63,46 +63,46 @@ export function EventCategoriesSection() {
                     </div>
                   </div>
 
-                  <div className={`grid content-start gap-5 ${category.videoSrc ? 'sm:grid-cols-[0.92fr_1.08fr]' : ''}`}>
+                  <div className={`grid content-start gap-4 ${category.videoSrc ? 'sm:grid-cols-[0.92fr_1.08fr]' : ''}`}>
                     {category.videoSrc ? (
                       <button
                         type="button"
                         onClick={() => setVideoTitle(category.videoTitle)}
-                        className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-950 text-left text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5"
+                        className="group relative overflow-hidden rounded-[20px] border border-slate-200 bg-slate-950 text-left text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5"
                       >
-                        <MediaThumbnail src={category.videoThumb} alt={`${category.title} video`} className="h-52 w-full object-cover opacity-85 transition duration-500 group-hover:scale-[1.02] sm:h-full sm:min-h-[13rem]" />
+                        <MediaThumbnail src={category.videoThumb} alt={`${category.title} video`} className="h-44 w-full object-cover opacity-85 transition duration-500 group-hover:scale-[1.02] sm:h-full sm:min-h-[11rem]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="grid h-14 w-14 place-items-center rounded-full border border-white/20 bg-white/[0.15] backdrop-blur-md">
+                          <span className="grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-white/[0.15] backdrop-blur-md">
                             <Play className="h-5 w-5 fill-white text-white" />
                           </span>
                         </div>
-                        <div className="absolute bottom-4 left-4 right-4">
+                        <div className="absolute bottom-3 left-3 right-3">
                           <p className="text-xs uppercase tracking-[0.24em] text-white/[0.60]">Video showcase</p>
                           <p className="mt-1 text-sm font-semibold">{category.videoTitle}</p>
                         </div>
                       </button>
                     ) : null}
 
-                    <div className="rounded-[28px] border border-slate-200 bg-white p-4">
-                      <div className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+                    <div className="rounded-[20px] border border-slate-200 bg-white p-3.5">
+                      <div className="mb-3 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
                         <ImageIcon className="h-4 w-4 text-fuchsia-600" />
                         Gallery preview
                       </div>
-                      <div className="grid grid-cols-3 gap-3">
+                      <div className="grid grid-cols-3 gap-2.5">
                         {category.gallery.map((image) => (
                           <button
                             key={image.src}
                             type="button"
                             onClick={() => setPreviewImage({ title: image.title, src: image.src })}
-                            className="group overflow-hidden rounded-[18px] bg-slate-100 text-left transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(17,24,39,0.12)]"
+                            className="group overflow-hidden rounded-[12px] bg-slate-100 text-left transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(17,24,39,0.12)]"
                             aria-label={`Preview ${image.title}`}
                           >
                             <img
                               src={image.src}
                               alt={image.title}
                               loading="lazy"
-                              className="h-24 w-full object-cover transition duration-300 group-hover:scale-[1.04] sm:h-28"
+                              className="h-20 w-full object-cover transition duration-300 group-hover:scale-[1.04] sm:h-24"
                             />
                           </button>
                         ))}

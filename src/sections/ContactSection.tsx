@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Check, ChevronDown, Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import { MagneticButton } from "../components/MagneticButton";
 import { SectionHeading } from "../components/SectionHeading";
@@ -10,12 +10,20 @@ const contactMethods = [
     { label: "Location", value: "Jakarta, Indonesia", icon: MapPin },
 ];
 
+const eventNeedOptions = [
+    "Corporate Event",
+    "Brand Event",
+    "Exhibition",
+    "Concert",
+    "Activation",
+];
+
 export function ContactSection() {
     const [form, setForm] = useState({
         name: "",
         company: "",
         email: "",
-        eventNeeds: "",
+        eventNeeds: [] as string[],
         message: "",
     });
 
@@ -116,7 +124,7 @@ export function ContactSection() {
                                 placeholder="name@company.com"
                                 type="email"
                             />
-                            <Field
+                            <EventNeedsChecklist
                                 label="Event Needs"
                                 value={form.eventNeeds}
                                 onChange={(value) =>
@@ -125,7 +133,6 @@ export function ContactSection() {
                                         eventNeeds: value,
                                     }))
                                 }
-                                placeholder="Corporate summit, launch, exhibition..."
                             />
                         </div>
                         <div className="mt-4">
@@ -161,6 +168,68 @@ export function ContactSection() {
                 </div>
             </div>
         </section>
+    );
+}
+
+function EventNeedsChecklist({
+    label,
+    value,
+    onChange,
+}: {
+    label: string;
+    value: string[];
+    onChange: (value: string[]) => void;
+}) {
+    const [open, setOpen] = useState(false);
+    const displayValue = value.length ? value.join(", ") : "Select event needs";
+
+    const toggleValue = (option: string) => {
+        if (value.includes(option)) {
+            onChange(value.filter((item) => item !== option));
+            return;
+        }
+
+        onChange([...value, option]);
+    };
+
+    return (
+        <div className="relative">
+            <span className="mb-2 block text-sm font-medium text-white/80">
+                {label}
+            </span>
+            <button
+                type="button"
+                onClick={() => setOpen((current) => !current)}
+                className="flex w-full items-center justify-between gap-3 rounded-[24px] border border-white/10 bg-white/[0.08] px-4 py-3.5 text-left text-sm text-white outline-none transition hover:bg-white/[0.12] focus:border-cyan-300/60"
+                aria-expanded={open}
+            >
+                <span className={value.length ? "truncate text-white" : "truncate text-white/40"}>
+                    {displayValue}
+                </span>
+                <ChevronDown className={`h-4 w-4 shrink-0 text-white/65 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+            </button>
+
+            {open ? (
+                <div className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-20 rounded-[24px] border border-white/10 bg-slate-950/95 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+                    {eventNeedOptions.map((option) => {
+                        const checked = value.includes(option);
+                        return (
+                            <button
+                                key={option}
+                                type="button"
+                                onClick={() => toggleValue(option)}
+                                className="flex w-full items-center gap-3 rounded-[18px] px-3 py-2.5 text-left text-sm text-white transition hover:bg-white/[0.08]"
+                            >
+                                <span className={`grid h-5 w-5 shrink-0 place-items-center rounded-md border transition ${checked ? "border-cyan-300 bg-cyan-300 text-slate-950" : "border-white/20 bg-white/[0.04] text-transparent"}`}>
+                                    <Check className="h-3.5 w-3.5" />
+                                </span>
+                                <span>{option}</span>
+                            </button>
+                        );
+                    })}
+                </div>
+            ) : null}
+        </div>
     );
 }
 
