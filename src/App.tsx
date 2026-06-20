@@ -9,7 +9,6 @@ const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'));
-const WhyKamiPage = lazy(() => import('./pages/WhyKamiPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 
 function ScrollManager() {
@@ -61,7 +60,6 @@ export default function App() {
       '/about': 'About KAMI | Event Management',
       '/services': 'Services | KAMI Event Management',
       '/portfolio': 'Portfolio | KAMI Event Management',
-      '/why-kami': 'Why KAMI | Event Management',
       '/contact': 'Contact | KAMI Event Management'
     };
 
@@ -81,7 +79,7 @@ export default function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
-            <Route path="/why-kami" element={<WhyKamiPage />} />
+            <Route path="/why-kami" element={<Navigate to="/about#why-kami" replace />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

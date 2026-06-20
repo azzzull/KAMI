@@ -8,7 +8,7 @@ import { useScrollState } from "../hooks/useScrollState";
 import logo from "../assets/visuals/logov2.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
-const whatsappUrl = "https://wa.me/6285694179574";
+const whatsappUrl = "https://wa.me/6285813583832?text=Hello%21%20We%20want%20to%20create%20moments%20with%20KAMI.%20Where%20do%20we%20start%3F";
 
 export function Navbar() {
     const [open, setOpen] = useState(false);
@@ -80,7 +80,7 @@ export function Navbar() {
                             rel="noreferrer"
                             className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white no-underline shadow-soft transition-all duration-300 hover:bg-slate-800"
                         >
-                            Let&apos;s Talk
+                            Nudge KAMI
                             <ArrowRight className="h-4 w-4" />
                         </a>
                     </div>
@@ -147,7 +147,7 @@ export function Navbar() {
                                     onClick={() => setOpen(false)}
                                     className="no-underline inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-4 text-sm font-semibold text-slate-950"
                                 >
-                                    Let&apos;s Talk
+                                    Nudge KAMI
                                     <ArrowRight className="h-4 w-4" />
                                 </a>
                                 <p className="text-sm leading-7 text-slate-300">

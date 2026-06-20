@@ -1,7 +1,6 @@
 import { EventCategoriesSection } from '../sections/EventCategoriesSection';
 import { PortfolioSection } from '../sections/PortfolioSection';
 import { TimelineSection } from '../sections/TimelineSection';
-import { VideoShowcaseSection } from '../sections/VideoShowcaseSection';
 
 export default function PortfolioPage() {
   return (
@@ -9,7 +8,6 @@ export default function PortfolioPage() {
       <EventCategoriesSection />
       <TimelineSection />
       <PortfolioSection />
-      <VideoShowcaseSection />
     </div>
   );
 }

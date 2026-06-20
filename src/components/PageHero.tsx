@@ -64,7 +64,7 @@ export function PageHero({ eyebrow, title, description, ctaLabel, ctaHref }: Pro
       <div className="absolute right-[-7rem] top-24 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.16),transparent_70%)] blur-3xl" />
       <div className="absolute left-1/2 top-24 h-px w-[46rem] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent)]" />
 
-      <div className="relative mx-auto max-w-6xl px-8 pb-14 sm:px-10 lg:px-8 lg:pb-16">
+      <div className="relative mx-auto max-w-6xl px-5 pb-14 sm:px-10 lg:px-8 lg:pb-16">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export function PageHero({ eyebrow, title, description, ctaLabel, ctaHref }: Pro
             {ctaLabel && ctaHref ? (
               <Link
                 to={ctaHref}
-                className="no-underline inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-bold text-slate-950 shadow-[0_18px_45px_rgba(255,255,255,0.18)] transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50"
+                className="no-underline inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-center text-sm font-bold text-slate-950 shadow-[0_18px_45px_rgba(255,255,255,0.18)] transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50 sm:w-auto"
               >
                 {ctaLabel}
                 <ArrowRight className="h-4 w-4" />

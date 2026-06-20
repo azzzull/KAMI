@@ -16,7 +16,7 @@ const testimonialSlides = testimonials.flatMap((testimonial) =>
 export function TestimonialsSection() {
     return (
         <section className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff,#f8fafc)] pb-14 pt-14 sm:pb-16 sm:pt-20 lg:pb-20 lg:pt-14">
-            <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
+            <div className="relative mx-auto max-w-6xl px-5 sm:px-10 lg:px-8">
                 <SectionHeading
                     eyebrow="Testimonials"
                     title="The kind of partner clients describe as calm, clear, and dependable."
@@ -48,7 +48,7 @@ export function TestimonialsSection() {
                             perSlideOffset: 9,
                             perSlideRotate: 1,
                         }}
-                        className="testimonial-swiper mx-auto max-w-[19.75rem] !overflow-visible sm:max-w-xl md:max-w-2xl lg:max-w-3xl"
+                        className="testimonial-swiper mx-auto !w-full max-w-full !overflow-visible sm:max-w-xl md:max-w-2xl lg:max-w-3xl"
                     >
                         {testimonialSlides.map((testimonial) => (
                             <SwiperSlide key={testimonial.slideKey}>

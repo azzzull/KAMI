@@ -14,11 +14,11 @@ export function EventCategoriesSection() {
 
   return (
     <section className="relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
-      <div className="relative mx-auto max-w-6xl px-8 sm:px-10 lg:px-8">
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-10 lg:px-8">
         <SectionHeading
-          eyebrow="Event Categories"
-          title="Separate premium sections for the major event categories we manage."
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero."
+          eyebrow="Where Great Moments Take Shape"
+          title="Every event serves a different purpose. Some celebrate. Some inspire. Some launch, engage, entertain, or transform."
+          description="Whatever the objective, KAMI combines strategy, creativity, and execution to create experiences people remember long after the lights go down. From annual celebrations and award nights to leadership meetings, town halls, and customer appreciation events, we help organizations create experiences that strengthen relationships, reinforce culture, and leave lasting impressions."
           align="center"
         />
 
@@ -31,29 +31,26 @@ export function EventCategoriesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-8% 0px' }}
               transition={{ duration: 0.55, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
-              className="overflow-hidden rounded-[24px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#f8fafc)] shadow-soft"
+              className="min-w-0 overflow-hidden rounded-[24px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#f8fafc)] shadow-soft"
             >
               <div>
                 <div className="relative h-48 overflow-hidden sm:h-56 lg:h-64">
                   <img src={category.image} alt={category.title} className="h-full w-full object-cover object-center transition duration-500 hover:scale-[1.02]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent opacity-75" />
-                  <div className="absolute left-5 top-5 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-md">
+                  <div className="absolute left-4 right-4 top-4 w-fit max-w-[calc(100%-2rem)] break-words rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[9px] font-semibold uppercase leading-4 tracking-[0.16em] text-white backdrop-blur-md sm:left-5 sm:right-auto sm:top-5 sm:max-w-[calc(100%-2.5rem)] sm:text-[10px] sm:tracking-[0.22em]">
                     {category.title}
                   </div>
                   <div className="absolute bottom-5 left-5 right-5 max-w-2xl text-white">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-200">Event category</p>
-                    <h3 className="mt-1 text-2xl font-bold tracking-tight sm:text-3xl">{category.title}</h3>
+                    <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">{category.title}</h3>
                   </div>
                 </div>
 
-                <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-[0.92fr_1.08fr]">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-fuchsia-600">{category.title}</p>
-                    <p className="mt-3 text-sm leading-7 text-slate-600">{category.description}</p>
+                <div className="grid min-w-0 gap-5 p-4 sm:p-6 lg:grid-cols-[0.92fr_1.08fr]">
+                  <div className="min-w-0">
+                    <p className="text-sm leading-7 text-slate-600">{category.description}</p>
 
                     <div className="mt-5">
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">Event examples</p>
-                      <div className="mt-3 grid gap-2.5">
+                      <div className="grid gap-2.5">
                         {category.examples.map((example) => (
                           <div key={example} className="rounded-[16px] border border-slate-200 bg-white px-3.5 py-2.5 text-sm leading-6 text-slate-700">
                             {example}
@@ -63,7 +60,7 @@ export function EventCategoriesSection() {
                     </div>
                   </div>
 
-                  <div className={`grid content-start gap-4 ${category.videoSrc ? 'sm:grid-cols-[0.92fr_1.08fr]' : ''}`}>
+                  <div className={`grid min-w-0 content-start gap-4 ${category.videoSrc ? 'sm:grid-cols-[0.92fr_1.08fr]' : ''}`}>
                     {category.videoSrc ? (
                       <button
                         type="button"
@@ -89,7 +86,7 @@ export function EventCategoriesSection() {
                         <ImageIcon className="h-4 w-4 text-fuchsia-600" />
                         Gallery preview
                       </div>
-                      <div className="grid grid-cols-3 gap-2.5">
+                      <div className="grid min-w-0 grid-cols-3 gap-2">
                         {category.gallery.map((image) => (
                           <button
                             key={image.src}

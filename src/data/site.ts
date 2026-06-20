@@ -44,6 +44,10 @@ import kami from "../assets/KAMI.jpg";
 import kfcopening from "../assets/brandEvent/kfc opening store.jpg";
 import kfcopening2 from "../assets/brandEvent/kfc opening store 2.jpg";
 import healthtechsummitvideo from "../assets/exhibition/Health Tech Summit.mp4";
+import corporateEventBanner from "../assets/bannerCategory/corporte-event.jpg";
+import brandLaunchBanner from "../assets/bannerCategory/brand-launch.jpg";
+import exhibitionsBanner from "../assets/bannerCategory/exhibitions.jpg";
+import concertBanner from "../assets/bannerCategory/concert.jpg";
 
 export type NavItem = { label: string; href: string };
 
@@ -106,119 +110,62 @@ export type Testimonial = {
 
 export type ClientLogo = { name: string; image?: string };
 
-function eventImage(
-    kind:
-        | "corporate"
-        | "brand"
-        | "exhibition"
-        | "concert"
-        | "backstage"
-        | "booth",
-    variant = 0,
-) {
-    const maps = {
-        corporate: [
-            corporateSynergy,
-            corporateBca,
-            corporateUnilever,
-            corporateConoco,
-            corporate4LifeConvention,
-        ],
-        brand: [
-            brand4LifeSkincare,
-            brandGoodDoctor,
-            brand4LifeSea,
-            brandDatsunFactory,
-            brandLgMobile,
-        ],
-        exhibition: [exhibitionChevrolet, exhibitionKompas, exhibitionMandiri],
-        booth: [exhibitionBoothVisual],
-        concert: [
-            concertMetallica,
-            concertBigbang,
-            concertTriKarnival,
-            concertHutSlank,
-        ],
-        backstage: [corporateSynergy, concertMetallica, exhibitionKompas],
-    } as const;
-
-    const list = maps[kind];
-    return list[variant % list.length];
-}
-
-function unsplashPhoto(query: string, sig: string | number) {
-    const q = query.toLowerCase();
-    if (q.includes("backstage") || q.includes("crew"))
-        return eventImage("backstage", String(sig).length);
-    if (q.includes("product") || q.includes("launch") || q.includes("brand"))
-        return eventImage("brand", String(sig).length);
-    if (q.includes("booth") || q.includes("trade") || q.includes("expo"))
-        return eventImage("booth", String(sig).length);
-    if (q.includes("exhibition"))
-        return eventImage("exhibition", String(sig).length);
-    if (q.includes("concert") || q.includes("stage") || q.includes("music"))
-        return eventImage("concert", String(sig).length);
-    if (
-        q.includes("corporate") ||
-        q.includes("conference") ||
-        q.includes("summit") ||
-        q.includes("gala") ||
-        q.includes("audience")
-    )
-        return eventImage("corporate", String(sig).length);
-    return eventImage("corporate", String(sig).length);
-}
-
 export const navItems: NavItem[] = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
-    { label: "Why KAMI", href: "/why-kami" },
     { label: "Contact", href: "/contact" },
 ];
 
 export const aboutCopy = {
     title: "About KAMI",
-    body1: "KAMI bridges corporate needs and creative event execution.",
-    body2: "With a core team that has strong corporate backgrounds prior to developing their own agency, KAMI understands the 3 main pillars in every corporate event needs, which are quality, budget, and creativity.",
+    header: "Where Business Thinking Meets Creative Possibility",
+    subheader:
+        "KAMI was built on a simple belief: exceptional events happen when strategy, creativity, and execution work in harmony.\n\nHaving spent years on the corporate side before building our own agency, we understand what clients truly need beyond a great-looking event. We know the pressures behind every budget approval, stakeholder expectation, timeline, and business objective.\n\nThat perspective allows us to bridge the gap between corporate requirements and creative execution. KAMI takes pride in creating experiences that are impactful, practical, and purpose-driven.",
+    checklist: [
+        "Quality that meets enterprise standards",
+        "Budgets managed with transparency and discipline",
+        "Creativity designed around business objectives",
+        "Processes shaped by real corporate experience",
+    ],
     image: kami,
 };
 
 export const teamProfiles: TeamProfile[] = [
     {
         name: "Siska Tamba",
-        role: "Wizard of Lightbulb Moments",
+        role: "Chief (Executive) Everything Officer & Founder",
         description:
-            "With 16 years of experience in Sales and Brand Marketing, Siska is more than able to map out your unique needs as a client and incorporate your brand values in various event concepts that actually are respectful of your budget!",
+            "With almost 20 years of experience spanning sales, marketing, partnerships, and brand strategy, Siska understands events from the client's perspective first.\n\nHaving spent years leading teams, managing budgets, and building brands, she knows that great events are not only measured by how impressive they look, but also by how effectively they achieve their purpose. Her strength lies in translating business objectives into meaningful experiences, ensuring creativity never loses sight of practicality.",
         photo: siskaPortrait,
     },
     {
         name: "Rendra Ramadhan",
-        role: "Operation Ninja",
+        role: "Chief Operations (Officer) Overlord & Co-Founder",
         description:
-            "Rendra brings a strong, dependable operational and production networks that are just the best for KAMI. He built these networks throughout his decades of event management experience in various industries and organizations in Indonesia.",
+            "If Siska imagines it, Rendra figures out how to make it happen.\n\nArmed with decades of experience in event production and operations, Rendra has built an extensive network of trusted partners, vendors, and production specialists across Indonesia. His deep understanding of logistics, technical execution, and on-the-ground realities ensures that every idea is supported by a plan and every plan is delivered with confidence.",
         photo: rendraPortrait,
     },
 ];
 
 export const whyKamiCards = [
     {
-        title: "Efficient Budget!",
+        title: "Smart Budgets, Stronger Impact",
         description:
-            "KAMI knows exactly how to be respectful of budget without having to sacrifice ideas and creativities.",
+            "We believe creativity should work with your budget, not against it.\n\nWith years of corporate experience behind us, we understand the importance of maximizing value without compromising quality. Every recommendation is made with practicality, efficiency, and business objectives in mind.",
         icon: Trophy,
     },
     {
-        title: "Dedicated Inhouse Team!",
+        title: "An In-House Team That Knows Your Event",
         description:
-            "KAMI guarantees our quality by engaging only inhouse team for the most important part of your events.",
+            "The people planning your event are the people delivering it.\n\nBy keeping key capabilities within our own team, we maintain greater control over quality, communication, and execution. Less handover. Less confusion. More accountability.",
         icon: Users,
     },
     {
-        title: "Drama-Free Production!",
+        title: "Production Without the Drama",
         description:
-            "KAMI has our own workshop for every production needs. It ensures timely delivery of production, as we are not sharing production load with another agency.",
+            "Deadlines shouldn't depend on someone else's schedule.\n\nWith our own production workshop and trusted operational network, we maintain greater control over timelines, quality standards, and last-minute changes. The result is a smoother production process and greater peace of mind for our clients.",
         icon: ShieldCheck,
     },
 ];
@@ -268,9 +215,9 @@ export const timelineFooterNote =
 export const categories: CategoryItem[] = [
     {
         slug: "corporate-event",
-        title: "Corporate Event",
+        title: "Corporate Events & Gatherings",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero sed cursus ante dapibus diam.",
+            "From annual celebrations and award nights to leadership meetings, town halls, and customer appreciation events, we help organizations create experiences that strengthen relationships, reinforce culture, and leave lasting impressions.",
         examples: [
             "Synergy Southeast Asia Summit 2025",
             "BCA Corporate and Distributor Gathering",
@@ -278,7 +225,7 @@ export const categories: CategoryItem[] = [
             "Conoco-Phillips Employee Gathering",
             "4Life Indonesia National Convention",
         ],
-        image: corporateSynergy,
+        image: corporateEventBanner,
         gallery: [
             {
                 src: synergyseasummit,
@@ -316,9 +263,9 @@ export const categories: CategoryItem[] = [
     },
     {
         slug: "brand-event",
-        title: "Brand Event",
+        title: "Brand Launches & Activations",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero sed cursus ante dapibus diam.",
+            "Launching something new deserves more than a stage and a backdrop. We create immersive brand experiences that bring products, campaigns, and stories to life. Everything to help brands connect with audiences both online and offline.",
         examples: [
             "4Life Skincare Launching",
             "Good Doctor Activation Roadshows",
@@ -326,7 +273,7 @@ export const categories: CategoryItem[] = [
             "Datsun Factory Launching",
             "LG Mobile Launching",
         ],
-        image: kfcopening2,
+        image: brandLaunchBanner,
         gallery: [
             { src: kfcopening, title: "KFC Opening Store launch detail" },
             { src: kfcopening2, title: "KFC Opening Store guest experience" },
@@ -344,16 +291,16 @@ export const categories: CategoryItem[] = [
     },
     {
         slug: "exhibition",
-        title: "Exhibition",
+        title: "Exhibitions & Trade Shows",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero sed cursus ante dapibus diam.",
+            "Whether you're exhibiting, sponsoring, or owning the entire show floor, we help brands stand out through strategic booth design, engaging visitor experiences, production support, and on-site event management.",
         examples: [
             "Chevrolet Booth : IIMS",
             "Kompas Gramedia : Jakarta Fair",
             "Mandiri Marathon Fair : All Booth",
             "Health Tech Summit",
         ],
-        image: exhibitionChevrolet,
+        image: exhibitionsBanner,
         gallery: [
             { src: exhibitionChevrolet, title: "Chevrolet Booth at IIMS" },
             {
@@ -368,16 +315,16 @@ export const categories: CategoryItem[] = [
     },
     {
         slug: "concert",
-        title: "Concert",
+        title: "Concerts & Live Performances",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero sed cursus ante dapibus diam.",
+            "From intimate showcases to large-scale productions, we manage every moving part behind the scenes. KAMI can take care of stage production and technical execution to talent coordination, permits, security, and audience experience. Let the spotlight stays exactly where it belongs.",
         examples: [
             "Bigbang Concert",
             "Metallica Concert",
             "Tri Karnival",
             "HUT Slank",
         ],
-        image: concertMetallica,
+        image: concertBanner,
         gallery: [
             { src: concertBigbang, title: "Bigbang Concert" },
             {

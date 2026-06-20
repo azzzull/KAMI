@@ -100,6 +100,31 @@ a:hover {
   will-change: transform;
 }
 
+.footer-cloud-word {
+  animation: footer-cloud-drift 21s ease-in-out infinite;
+  opacity: 0.42;
+  will-change: translate, opacity;
+}
+
+.footer-cloud-word:hover {
+  animation-play-state: paused;
+  opacity: 1;
+}
+
+.portfolio-collage-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+}
+
+.portfolio-collage-track {
+  animation: portfolio-collage-scroll 58s linear infinite;
+  will-change: transform;
+}
+
+.portfolio-collage-track:hover {
+  animation-play-state: paused;
+}
+
 .testimonial-swiper {
   padding-bottom: 1rem;
 }
@@ -163,5 +188,27 @@ a:hover {
   }
   to {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes portfolio-collage-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes footer-cloud-drift {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  33% {
+    translate: 10px -7px;
+  }
+  66% {
+    translate: -8px 6px;
   }
 }

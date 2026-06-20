@@ -4,7 +4,7 @@ import { ImageModal } from "../components/ImageModal";
 import { SectionHeading } from "../components/SectionHeading";
 import { categories } from "../data/site";
 
-const serviceCopy: Record<string, { title: string; description: string }> = {
+const legacyServiceCopy: Record<string, { title: string; description: string }> = {
     "corporate-event": {
         title: "Corporate Event",
         description:
@@ -24,6 +24,29 @@ const serviceCopy: Record<string, { title: string; description: string }> = {
         title: "Concerts",
         description:
             "Including but not limited to provision of all and every concert needs from lighting, stage, talents, event management, license and permit, to security and every other possible items typically requested in music concerts.",
+    },
+};
+
+const serviceCopy: Record<string, { title: string; description: string }> = {
+    "corporate-event": {
+        title: "Corporate Events & Gatherings",
+        description:
+            "From annual celebrations and award nights to leadership meetings, town halls, and customer appreciation events, we help organizations create experiences that strengthen relationships, reinforce culture, and leave lasting impressions.",
+    },
+    "brand-event": {
+        title: "Brand Launches & Activations",
+        description:
+            "Launching something new deserves more than a stage and a backdrop. We create immersive brand experiences that bring products, campaigns, and stories to life. Everything to help brands connect with audiences both online and offline.",
+    },
+    exhibition: {
+        title: "Exhibitions & Trade Shows",
+        description:
+            "Whether you're exhibiting, sponsoring, or owning the entire show floor, we help brands stand out through strategic booth design, engaging visitor experiences, production support, and on-site event management.",
+    },
+    concert: {
+        title: "Concerts & Live Performances",
+        description:
+            "From intimate showcases to large-scale productions, we manage every moving part behind the scenes. KAMI can take care of stage production and technical execution to talent coordination, permits, security, and audience experience. Let the spotlight stays exactly where it belongs.",
     },
 };
 
@@ -200,8 +223,8 @@ export function ServicesSection() {
             <div className="relative mx-auto max-w-6xl space-y-10 px-6 sm:px-8 lg:px-10">
                 <SectionHeading
                     eyebrow="Services"
-                    title="Event services shaped around the kind of experience you need."
-                    description="Explore the core event formats KAMI handles, from corporate gatherings and launches to exhibitions and concerts."
+                    title="Experiences Built Around Your Goals"
+                    description="No two events are exactly alike, but every successful event starts with the same thing: a clear objective. Whether you're celebrating achievements, launching a brand, engaging customers, or filling a concert venue, KAMI brings together strategy, creativity, production, and execution to make it happen."
                     align="center"
                 />
 
@@ -223,7 +246,7 @@ export function ServicesSection() {
                             >
                                 {copy.title}
                             </motion.h2>
-                            <p className="mt-4 max-w-md text-sm font-medium italic leading-7 tracking-[0.07em] text-[#1f2355] sm:text-base sm:leading-8 lg:max-w-sm">
+                            <p className="mt-4 max-w-md text-sm font-medium leading-7 text-[#1f2355] sm:text-base sm:leading-8 lg:max-w-sm">
                                 {copy.description}
                             </p>
                         </div>
