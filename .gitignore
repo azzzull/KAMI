@@ -21,3 +21,5 @@ dist/
 Thumbs.db
 
 *.mp4
+!src/assets/videos/4life-indonesia-convention.mp4
+!src/assets/videos/4life-us-convention.mp4
