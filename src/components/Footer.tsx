@@ -27,7 +27,7 @@ const capabilityWords = [
     {
         label: "Technical Production",
         className:
-            "xl:right-[3%] xl:top-[36%] xl:text-lg xl:-rotate-3 2xl:text-md",
+            "xl:right-[3%] xl:top-[36%] xl:text-lg xl:-rotate-3 2xl:text-lg",
     },
     {
         label: "Talent Management",
@@ -89,7 +89,7 @@ export function Footer() {
                                 animationDelay: `${index * -1.7}s`,
                                 animationDuration: `${18 + (index % 4) * 3}s`,
                             }}
-                            className={`footer-cloud-word absolute z-10 cursor-default select-none whitespace-nowrap font-extrabold uppercase leading-none tracking-[0.08em] text-white/14 transition-colors duration-200 hover:z-30 hover:text-white ${word.className}`}
+                            className={`footer-cloud-word absolute z-10 cursor-default select-none whitespace-nowrap font-extrabold uppercase leading-none tracking-[0.08em] text-white/[0.5] transition-colors duration-200 hover:z-30 hover:text-white ${word.className}`}
                         >
                             {word.label}
                         </motion.span>
@@ -106,7 +106,7 @@ export function Footer() {
                         Multiple Capabilities
                     </h2>
                 </div>
-                <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
+                <div className="grid gap-12 lg:grid-cols-[1.2fr_0.75fr_1fr_auto] lg:gap-8">
                     <div className="space-y-5">
                         <Link
                             to="/"
@@ -177,18 +177,22 @@ export function Footer() {
                         </h3>
                         <div className="mt-5 grid gap-3 text-sm text-slate-200">
                             <a
-                                href="tel:+6281234567890"
-                                className="no-underline inline-flex items-center gap-2 transition hover:text-white"
+                                href="tel:+6285813583832"
+                                className="no-underline inline-flex min-w-0 items-center gap-2 transition hover:text-white"
                             >
                                 <Phone className="h-4 w-4 text-fuchsia-400" />{" "}
-                                +62 812 3456 7890
+                                <span className="[overflow-wrap:anywhere]">
+                                    +62 858 1358 3832
+                                </span>
                             </a>
                             <a
-                                href="mailto:hello@kami-event.com"
-                                className="no-underline inline-flex items-center gap-2 transition hover:text-white"
+                                href="mailto:siska@kamibuatkamu.com"
+                                className="no-underline inline-flex min-w-0 items-center gap-2 transition hover:text-white"
                             >
                                 <Mail className="h-4 w-4 text-fuchsia-400" />{" "}
-                                hello@kami-event.com
+                                <span className="whitespace-nowrap">
+                                    siska@kamibuatkamu.com
+                                </span>
                             </a>
                             <p className="text-slate-400">Jakarta, Indonesia</p>
                         </div>

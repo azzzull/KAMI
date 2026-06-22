@@ -107,7 +107,7 @@ export function ContactSection() {
                                             <p className="text-xs uppercase tracking-[0.24em] text-white/60">
                                                 {item.label}
                                             </p>
-                                            <p className="mt-1.5 break-words text-base font-semibold [overflow-wrap:anywhere]">
+                                            <p className="mt-1.5 text-base font-semibold [overflow-wrap:anywhere]">
                                                 {item.value}
                                             </p>
                                         </div>
@@ -128,25 +128,22 @@ export function ContactSection() {
                         className="min-w-0 rounded-[28px] border border-white/[0.12] bg-white/[0.08] p-4 shadow-soft backdrop-blur-sm sm:rounded-[32px] sm:p-6"
                         onSubmit={handleSubmit}
                     >
-                        <label
-                            className="absolute -left-[10000px] h-px w-px overflow-hidden"
+                        <input
                             aria-hidden="true"
-                        >
-                            Website
-                            <input
-                                name="website"
-                                type="text"
-                                tabIndex={-1}
-                                autoComplete="off"
-                                value={form.website}
-                                onChange={(event) =>
-                                    setForm((current) => ({
-                                        ...current,
-                                        website: event.target.value,
-                                    }))
-                                }
-                            />
-                        </label>
+                            aria-label="Website"
+                            autoComplete="off"
+                            className="absolute -left-[10000px] h-px w-px overflow-hidden"
+                            name="website"
+                            tabIndex={-1}
+                            type="text"
+                            value={form.website}
+                            onChange={(event) =>
+                                setForm((current) => ({
+                                    ...current,
+                                    website: event.target.value,
+                                }))
+                            }
+                        />
                         <div className="grid gap-4 sm:grid-cols-2">
                             <Field
                                 label="Name"
@@ -279,6 +276,7 @@ function EventNeedsChecklist({
 }) {
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const labelId = "event-needs-label";
     const displayValue = value.length ? value.join(", ") : "Select event needs";
 
     useEffect(() => {
@@ -306,7 +304,10 @@ function EventNeedsChecklist({
 
     return (
         <div ref={dropdownRef} className="relative">
-            <span className="mb-2 block text-sm font-medium text-white/80">
+            <span
+                id={labelId}
+                className="mb-2 block text-sm font-medium text-white/80"
+            >
                 {label}
             </span>
             <button
@@ -314,6 +315,7 @@ function EventNeedsChecklist({
                 onClick={() => setOpen((current) => !current)}
                 className="flex w-full items-center justify-between gap-3 rounded-[24px] border border-white/10 bg-white/[0.08] px-4 py-3.5 text-left text-sm text-white outline-none transition hover:bg-white/[0.12] focus:border-cyan-300/60"
                 aria-expanded={open}
+                aria-labelledby={labelId}
             >
                 <span
                     className={
