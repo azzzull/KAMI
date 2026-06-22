@@ -10,13 +10,17 @@ const clean = (value, maxLength) =>
     typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 
 const escapeHtml = (value) =>
-    value.replace(/[&<>'"]/g, (character) => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        "'": "&#039;",
-        '"': "&quot;",
-    })[character]);
+    value.replace(
+        /[&<>'"]/g,
+        (character) =>
+            ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                "'": "&#039;",
+                '"': "&quot;",
+            })[character],
+    );
 
 export default async (request) => {
     if (request.method !== "POST") {
@@ -45,22 +49,31 @@ export default async (request) => {
         email: clean(payload.email, 254),
         phone: clean(payload.phone, 50),
         eventNeeds: Array.isArray(payload.eventNeeds)
-            ? payload.eventNeeds.map((item) => clean(item, 120)).filter(Boolean).slice(0, 10)
+            ? payload.eventNeeds
+                  .map((item) => clean(item, 120))
+                  .filter(Boolean)
+                  .slice(0, 10)
             : [],
         message: clean(payload.message, 5_000) || "Not provided",
     };
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!inquiry.company || !emailPattern.test(inquiry.email) || !inquiry.phone) {
+    if (
+        !inquiry.company ||
+        !emailPattern.test(inquiry.email) ||
+        !inquiry.phone
+    ) {
         return json(400, { message: "Company, email, and phone are required" });
     }
 
     const smtpUser = process.env.GOOGLE_WORKSPACE_USER;
     const smtpPassword = process.env.GOOGLE_WORKSPACE_APP_PASSWORD;
-    const recipient = process.env.CONTACT_RECIPIENT || "siska@kamibuatkamu.com";
+    const recipient = process.env.CONTACT_RECIPIENT || "hello@kamibuatkamu.com";
 
     if (!smtpUser || !smtpPassword) {
-        console.error("Google Workspace SMTP environment variables are missing");
+        console.error(
+            "Google Workspace SMTP environment variables are missing",
+        );
         return json(500, { message: "Email service is not configured" });
     }
 
@@ -71,9 +84,14 @@ export default async (request) => {
         auth: { user: smtpUser, pass: smtpPassword },
     });
 
-    const eventNeeds = inquiry.eventNeeds.length ? inquiry.eventNeeds.join(", ") : "Not selected";
+    const eventNeeds = inquiry.eventNeeds.length
+        ? inquiry.eventNeeds.join(", ")
+        : "Not selected";
     const safe = Object.fromEntries(
-        Object.entries({ ...inquiry, eventNeeds }).map(([key, value]) => [key, escapeHtml(String(value))]),
+        Object.entries({ ...inquiry, eventNeeds }).map(([key, value]) => [
+            key,
+            escapeHtml(String(value)),
+        ]),
     );
 
     try {
